@@ -48,7 +48,7 @@ function App() {
       } else {
         const data = await axios.post(`${baseURL}/event`, {description});
         setEventsList([...eventsList, data.data])
-      }   
+      }
       setDescription('');   
       setEditDescription('');
       setEventId(null);
@@ -89,29 +89,29 @@ function App() {
       <section>
         <ul>
           {eventsList.map(event => {
-              if (eventId === event.id) {
-                return (
-                  <li key={event.id}>
-                    <form >
-                      <input 
-                        onChange={(e) => handleChange(e, 'edit')}
-                        type="text" 
-                        name='editDescription' 
-                        id='editDescription'
-                        value={editDescription} />
-                      <button type="submit" onClick={handleSubmit}>submit</button>
-                    </form> 
-                  </li>
-                )
-              } 
-              else {
-                return (
-                  <li key={event.id}>
-                    {event.description}
-                    <button onClick={() => handleEdit(event)}>edit</button>
-                    <button onClick={() => handleDelete(event.id)}>delete</button>
-                  </li>)
-              }})
+            if (eventId === event.id) {
+              return (
+                <li key={event.id}>
+                  <form >
+                    <input 
+                      onChange={(e) => handleChange(e, 'edit')}
+                      type="text" 
+                      name='editDescription' 
+                      id='editDescription'
+                      value={editDescription} />
+                    <button type="submit" onClick={handleSubmit}>submit</button>
+                  </form> 
+                </li>
+              )
+            } 
+            else {
+              return (
+                <li key={event.id}>
+                  {event.description}
+                  <button onClick={() => handleEdit(event)}>edit</button>
+                  <button onClick={() => handleDelete(event.id)}>delete</button>
+                </li>)
+            }})
           }
         </ul>
       </section>
