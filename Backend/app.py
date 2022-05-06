@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 from extensions import db, migrate
 from routes.test import test
+from routes.user import user
 
 def create_app():
   app = Flask(__name__)
@@ -12,6 +13,7 @@ def create_app():
   migrate.init_app(app)
 
   app.register_blueprint(test, url_prefix="/tests")
+  app.register_blueprint(user, url_prefix="/user")
 
   CORS(app)
   return app
