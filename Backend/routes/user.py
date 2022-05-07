@@ -1,3 +1,4 @@
+from turtle import update
 from flask import Blueprint, request
 from extensions import db
 
@@ -15,6 +16,11 @@ def format_user(user : User):
     'age' : user.age
   }
 
+def request_and_update(item:str, updated_user:dict):
+  value = request.json[item]
+  if (value):
+    updated_user[item] = value
+
 @user.route('/user', methods=['POST'])
 def post_user():
   email=request.json(['email'])
@@ -29,7 +35,7 @@ def post_user():
   return format_user(user)
 
 @user.route('/user', methods=['GET'])
-def get_user():
+def get_users():
   users = User.query.all()
   user_list = []
   for user in users:
@@ -41,3 +47,24 @@ def get_user(id):
   user = User.query.filter_by(id=id).one()
   user = format_user(user)
   return {'user' : user}
+
+@user.route('user/<id>', methods=['DELETE'])
+def delete_user(id):
+  user = User.query.filter_by(id=id).one()
+  db.session.delete(user)
+  db.session.commit()
+  return f'user id: {id} deleted'
+
+@user.route('user/<id>', methods=['PUT'])
+def update_user(id):
+  user = User.query.filter_by(id=id).one()
+  updated = dict()
+  request_and_update['email', updated]
+  request_and_update['password', updated]
+  request_and_update['first_name', updated]
+  request_and_update['last_name', updated]
+  request_and_update['gender', updated]
+  request_and_update['age', updated]
+  user.update(updated)
+  db.session.commit()
+  return {'user': user}
