@@ -11,7 +11,6 @@ class User(db.Model):
   gender = db.Column(db.Boolean, nullable=False)
   age = db.Column(db.Integer, nullable=False)
 
-  
   # body information of a user
   chest_cir = db.Column(db.Float, nullable=True)
   waist_cir = db.Column(db.Float, nullable=True)

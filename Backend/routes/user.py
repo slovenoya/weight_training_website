@@ -16,11 +16,6 @@ def format_user(user : User):
     'age' : user.age
   }
 
-def request_and_update(item:str, updated_user:dict):
-  value = request.json[item]
-  if (value):
-    updated_user[item] = value
-
 @user.route('/user', methods=['POST'])
 def post_user():
   email=request.json(['email'])
@@ -57,14 +52,4 @@ def delete_user(id):
 
 @user.route('user/<id>', methods=['PUT'])
 def update_user(id):
-  user = User.query.filter_by(id=id).one()
-  updated = dict()
-  request_and_update['email', updated]
-  request_and_update['password', updated]
-  request_and_update['first_name', updated]
-  request_and_update['last_name', updated]
-  request_and_update['gender', updated]
-  request_and_update['age', updated]
-  user.update(updated)
-  db.session.commit()
-  return {'user': user}
+  pass
