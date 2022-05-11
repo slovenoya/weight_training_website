@@ -28,10 +28,3 @@ class User(db.Model):
     self.last_name = last_name
     self.gender = gender
     self.age = age
-
-  def user_patch_model(self, data, id):
-    query = f'UPDATE public.{self.__tablename__} SET '
-    for key in data:
-      query += f'{key}={data[key]},'
-    query = query[:-1] + f' WHERE id={id}'
-    return query

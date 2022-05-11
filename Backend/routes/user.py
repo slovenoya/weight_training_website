@@ -56,7 +56,8 @@ def delete_user(id):
 
 @user.route('/user/<id>', methods=['PATCH'])
 def update_user(id):
-  user=User.query.get_or_404(id)
-  db.session.execute(user.user_patch_model(request.json, id))
+  user=User.query.filter_by(id=id)
+  data=request.json
+  user.update(data)
   db.session.commit()
-  return format_user(user)
+  return format_user(user.one())
