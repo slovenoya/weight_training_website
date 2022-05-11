@@ -1,5 +1,4 @@
-from turtle import update
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from extensions import db
 from models.user import User
 user = Blueprint('user', __name__)

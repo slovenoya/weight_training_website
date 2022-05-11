@@ -35,11 +35,3 @@ class User(db.Model):
       query += f'{key}={data[key]},'
     query = query[:-1] + f' WHERE id={id}'
     return query
-
-
-
-
-
-
-
-
