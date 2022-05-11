@@ -13,7 +13,7 @@ def create_app():
   migrate.init_app(app)
 
   app.register_blueprint(test, url_prefix="/tests")
-  app.register_blueprint(user, url_prefix="/user")
+  app.register_blueprint(user, url_prefix="")
 
   CORS(app)
   return app

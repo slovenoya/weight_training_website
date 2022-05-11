@@ -1,29 +1,35 @@
 from turtle import update
-from flask import Blueprint, request
+from flask import Blueprint, jsonify, request
 from extensions import db
-
 from models.user import User
-
 user = Blueprint('user', __name__)
 
-def format_user(user : User):
+def format_user(user):
   return {
+    'id' : user.id, 
     'email' : user.email, 
     'password' : user.password, 
     'first_name' : user.first_name, 
     'last_name' : user.last_name, 
     'gender' : user.gender, 
-    'age' : user.age
+    'age' : user.age, 
+    'chest_cir' : user.chest_cir, 
+    'waist_cir' : user.waist_cir, 
+    'arm_cir' : user.arm_cir,
+    'hip_cir' : user.hip_cir, 
+    'body_fat' : user.body_fat,
+    'height' : user.height, 
+    'weight' : user.weight
   }
 
 @user.route('/user', methods=['POST'])
 def post_user():
-  email=request.json(['email'])
-  password=request.json(['password'])
-  first_name=request.json(['first_name'])
-  last_name=request.json(['last_name'])
-  gender=request.json(['gender'])
-  age=request.json(['age'])
+  email=request.json['email']
+  password=request.json['password']
+  first_name=request.json['first_name']
+  last_name=request.json['last_name']
+  gender=request.json['gender']
+  age=request.json['age']
   user = User(email, password, first_name, last_name, gender, age)
   db.session.add(user)
   db.session.commit()
@@ -39,17 +45,19 @@ def get_users():
 
 @user.route('/user/<id>', methods=['GET'])
 def get_user(id):
-  user = User.query.filter_by(id=id).one()
-  user = format_user(user)
-  return {'user' : user}
+  user = User.query.get_or_404(id)
+  return format_user(user)
 
-@user.route('user/<id>', methods=['DELETE'])
+@user.route('/user/<id>', methods=['DELETE'])
 def delete_user(id):
-  user = User.query.filter_by(id=id).one()
+  user = User.query.get_or_404(id)
   db.session.delete(user)
   db.session.commit()
   return f'user id: {id} deleted'
 
-@user.route('user/<id>', methods=['PUT'])
+@user.route('/user/<id>', methods=['PATCH'])
 def update_user(id):
-  pass
+  user=User.query.get_or_404(id)
+  db.session.execute(user.user_patch_model(request.json, id))
+  db.session.commit()
+  return format_user(user)
