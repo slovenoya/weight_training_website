@@ -1,54 +1,53 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import {React} from 'react'
+import {React, useState} from 'react'
+import axios from 'axios';
+import { Link } from "react-router-dom";
+const baseURL =  "http://127.0.0.1:5000";
 
 const Homepage = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const handleUsernameChange = e => {
+    setUserName(e.target.value)
+  }
+
+  const handlePasswordChange = e => {
+    setPassword(e.target.value)
+  }
+
+  const handleLogin = async () => {
+    if (userName !== '' && password !== ''){
+      try {
+        const data = await axios.get(`${baseURL}/user/verification/${userName}`, {"password" : password});
+        console.log(data)
+      } catch (err) {
+        console.log(err.message)
+      }
+    } 
+  }
 
   return (
-    <Form name="basic" 
-      labelCol={{span: 8,}} 
-      wrapperCol={{span: 16,}} 
-      initialValues={{remember: true,}}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{required: true, message: 'Please input your password!',},]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16, }}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item wrapperCol={{offset: 8, span: 16,}}>
-        <Button type="primary" htmlType="submit"> Submit </Button>
-      </Form.Item>
-    </Form>
-  );
-};
+    <div>
+      <form>
+        <div>
+          <label htmlFor="username">username </label>
+          {(userName.length === 0) && <p style={{color:'red'}}>please input your user name</p>}
+          <input type="text" onChange={handleUsernameChange}/>
+        </div>
+        <div>
+          <label htmlFor="password">password </label>
+          {(password.length === 0) && <p style={{color:'red'}}>please input your user name</p>}
+          <input type="password" onChange={handlePasswordChange}/>
+        </div>
+        <div>
+          <button type="submit" onClick={handleLogin}>loggin</button>
+          <nav>
+            <Link to='registration'>register</Link>
+          </nav>
+        </div>
+      </form>
+    </div>
+  )
+}
 
 export default Homepage;

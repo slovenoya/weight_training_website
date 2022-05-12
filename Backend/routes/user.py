@@ -1,4 +1,6 @@
-from flask import Blueprint, request
+from sre_constants import FAILURE, SUCCESS
+from flask import Blueprint, jsonify, request
+import sqlalchemy
 from extensions import db
 from models.user import User
 user = Blueprint('user', __name__)
@@ -31,8 +33,11 @@ def post_user():
   age=request.json['age']
   user = User(email, password, first_name, last_name, gender, age)
   db.session.add(user)
-  db.session.commit()
-  return format_user(user)
+  try:  
+    db.session.commit()
+  except sqlalchemy.exc.IntegrityError:
+    return jsonify(user=None)
+  return jsonify(user=format_user(user))
 
 @user.route('/user', methods=['GET'])
 def get_users():
@@ -45,7 +50,7 @@ def get_users():
 @user.route('/user/<id>', methods=['GET'])
 def get_user(id):
   user = User.query.get_or_404(id)
-  return format_user(user)
+  return jsonify(user=format_user(user))
 
 @user.route('/user/<id>', methods=['DELETE'])
 def delete_user(id):
@@ -60,4 +65,10 @@ def update_user(id):
   data=request.json
   user.update(data)
   db.session.commit()
-  return format_user(user.one())
+  return jsonify(user=format_user(user.one()))
+
+@user.route('user/validate/<username>', methods=["GET"])
+def verify_user(username):
+  password=request.json['password']
+  user=User.query.filter(User.email==username and User.password==password).one()
+  return jsonify(verification=(user != None))
