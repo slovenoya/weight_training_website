@@ -5,6 +5,7 @@ import Test from "./pages/test"
 import Homepage from "./pages/homepage"
 import Profile from "./pages/profile"
 import Registration from "./pages/registration"
+import 'antd/dist/antd.css'; 
 
 const App = () => {
   return (

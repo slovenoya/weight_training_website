@@ -50,7 +50,7 @@ def get_users():
 @user.route('/user/<id>', methods=['GET'])
 def get_user(id):
   user = User.query.get_or_404(id)
-  return jsonify(user=format_user(user))
+  return format_user(user)
 
 @user.route('/user/<id>', methods=['DELETE'])
 def delete_user(id):
@@ -67,8 +67,12 @@ def update_user(id):
   db.session.commit()
   return jsonify(user=format_user(user.one()))
 
-@user.route('user/validate/<username>', methods=["GET"])
-def verify_user(username):
+@user.route('user/validate', methods=["POST"])
+def verify_user():
   password=request.json['password']
-  user=User.query.filter(User.email==username and User.password==password).one()
-  return jsonify(verification=(user != None))
+  username=request.json['email']
+  try:
+    user = User.query.filter(User.email==username and User.password==password).one()
+  except sqlalchemy.exc.NoResultFound:
+    return {"verification":False}
+  return {"verification":True, "id":user.id}
