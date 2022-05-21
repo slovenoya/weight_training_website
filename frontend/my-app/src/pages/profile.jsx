@@ -7,17 +7,17 @@ function Profile (props) {
   const id = useLocation().state.id
   const [user, setUser]=useState('')
 
-  useEffect(() => {fetchUser()}, []);
-
-  const fetchUser = async() => {
-    try {
-      const resp = await axios.get(`${baseURL}/user/${id}`);
-      setUser(resp.data)
-    } catch (err) {
-      console.error(err)
-      return false;
+  useEffect(() => {
+    const fetchUser = async() => {
+      try {
+        const resp = await axios.get(`${baseURL}/user/${id}`);
+        setUser(resp.data)
+      } catch (err) {
+        console.error(err)
+        return false;
+      }
     }
-  }
+    fetchUser()}, [id]);
 
   return (
     <div>
