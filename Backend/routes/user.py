@@ -72,7 +72,10 @@ def verify_user():
   password=request.json['password']
   username=request.json['email']
   try:
-    user = User.query.filter(User.email==username and User.password==password).one()
+    print(password)
+    user = User.query.filter(User.email==username).one()
+    if not (user.password == password):
+      return {"verification" : False}
   except sqlalchemy.exc.NoResultFound:
     return {"verification":False}
   return {"verification":True, "id":user.id}
