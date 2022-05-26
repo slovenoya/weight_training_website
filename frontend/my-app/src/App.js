@@ -1,9 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
-import Test from "./pages/test"
 import Homepage from "./pages/homepage"
-import Profile from "./pages/profile"
+import Profile from "./pages/main_user_page/profile"
 import Registration from "./pages/registration"
 import 'antd/dist/antd.css'; 
 
@@ -12,7 +10,6 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/test' element={<Test />}></Route>
           <Route path='' element={<Homepage/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/registration' element={<Registration/>}></Route>
