@@ -1,35 +1,17 @@
-import axios from 'axios'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {useLocation} from 'react-router-dom'
 import {Menu, Layout} from 'antd';
-import {AppstoreOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
-import BodyData from './body_data'
-import ClassicPlan from './classic_plan'
-import ContactInfo from './contact_info'
-import DIYPlan from './diy_plan'
-import UserPlan from './user_plan'
-import DefaultProfile from './default_profile'
+import {AppstoreOutlined, UserOutlined} from '@ant-design/icons';
+import BodyData from './user_page_components/body_data'
+import ClassicPlan from './user_page_components/classic_plan'
+import ContactInfo from './user_page_components/contact_info'
+import DIYPlan from './user_page_components/diy_plan'
+import UserPlan from './user_page_components/user_plan'
+import DefaultProfile from './user_page_components/default_profile'
 
-const baseURL =  "http://127.0.0.1:5000";
 const { Header, Footer, Sider, Content } = Layout;
-const items = [
-  getItem('Profile', 'profile', <UserOutlined />, [
-    getItem('Body Data', 'body_data'),
-    getItem('Contact Info', 'contact_info'),
-  ]),
-  getItem('Plans', 'plans', <AppstoreOutlined />, [
-    getItem('Your Plans', 'user_plan'),
-    getItem('Classic Plans', 'provided_plan'), 
-    getItem('DIY Plan', 'diy_plan')
-  ]),
-  getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-    getItem('Option 9'),
-    getItem('Option 10'),
-    getItem('Option 11'),
-    getItem('Option 12'),
-  ]),
-];
 
+//helper function to create items
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -40,7 +22,20 @@ function getItem(label, key, icon, children, type) {
   };
 }
 
-const rootSubmenuKeys = ['profile', 'plans', 'sub4'];
+//items for menu bar
+const items = [
+  getItem('Profile', 'profile', <UserOutlined />, [
+    getItem('Body Data', 'body_data'),
+    getItem('Contact Info', 'contact_info'),
+  ]),
+  getItem('Plans', 'plans', <AppstoreOutlined />, [
+    getItem('Your Plans', 'user_plan'),
+    getItem('Classic Plans', 'provided_plan'), 
+    getItem('DIY Plan', 'diy_plan')
+  ]),
+];
+
+const rootSubmenuKeys = ['profile', 'plans'];
 
 const Profile = (props) => {  
   const id = useLocation().state.id

@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Homepage from "./pages/homepage"
-import Profile from "./pages/main_user_page/profile"
+import Profile from "./pages/profile"
 import Registration from "./pages/registration"
 import 'antd/dist/antd.css'; 
 
