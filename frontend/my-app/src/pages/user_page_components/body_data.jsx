@@ -30,7 +30,7 @@ const BodyData = (props) => {
 
     return <Typography>
       <Title>
-        Body Info
+        Body Stat
       </Title>
       <Paragraph>
         gender : {getGender(user.gender)}
@@ -66,7 +66,7 @@ const BodyData = (props) => {
   }
   
   const EditPage = () => {
-    const [data, setData] = useState(user);
+    const [data, setData] = useState({});
     const handleChange = e => {
       const {name, value} = e.target
       setData(prevState => ({
@@ -85,7 +85,6 @@ const BodyData = (props) => {
     const{Option} = Select;
 
     const handleSubmit = async() => {
-      console.log(data)
       try {
         await axios.patch(`${baseURL}/user/${id}`, data)
       } catch (err) {

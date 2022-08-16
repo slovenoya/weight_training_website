@@ -58,7 +58,7 @@ function Registration() {
   }
 
   return (
-    <>
+    <div>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -116,7 +116,7 @@ function Registration() {
           </nav>
         </Form.Item>
       </Form>
-    </>
+    </div>
   )
 }
 

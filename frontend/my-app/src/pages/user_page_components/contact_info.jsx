@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const baseURL =  "http://127.0.0.1:5000"
 const { Title, Paragraph} = Typography;
+
 const BodyData = (props) => {
   const id = props.id;
   const [user, setUser] = useState({});
@@ -22,6 +23,7 @@ const BodyData = (props) => {
         }
       }
       fetchUser()}, [])
+
     return <Typography>
       <Title>
         Contact Info
@@ -43,12 +45,14 @@ const BodyData = (props) => {
   
   const EditPage = () => {
     const [data, setData] = useState(user);
+
     const handleChange = e => {
       const {name, value} = e.target
       setData(prevState => ({
                 ...prevState,
                 [name]: value
             }))}
+
     const handleSubmit = async() => {
       console.log(data)
       try {
@@ -57,6 +61,7 @@ const BodyData = (props) => {
         console.log(err)
       }
     }
+
     return <Typography>
       <Title>
         Body Info
@@ -71,13 +76,12 @@ const BodyData = (props) => {
   }
 
   const [page, setPage] = useState(<DefaultPage/>)
-  
   useEffect(() => {
     const setupPage = () => {
       if (onEdit) {
         setPage(<EditPage/>)
       } else {
-        setPage(<DefaultPage/>)
+        setPage(<DefaultPage id/>)
       }
     }
     setupPage()}, [user, onEdit]);

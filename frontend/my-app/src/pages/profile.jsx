@@ -25,7 +25,7 @@ function getItem(label, key, icon, children, type) {
 //items for menu bar
 const items = [
   getItem('Profile', 'profile', <UserOutlined />, [
-    getItem('Body Data', 'body_data'),
+    getItem('Body Stat', 'body_data'),
     getItem('Contact Info', 'contact_info'),
   ]),
   getItem('Plans', 'plans', <AppstoreOutlined />, [
@@ -101,4 +101,5 @@ const Profile = (props) => {
     </Layout>
   );
 };
+
 export default Profile

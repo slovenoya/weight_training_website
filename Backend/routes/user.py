@@ -63,7 +63,8 @@ def delete_user(id):
 def update_user(id):
   user=User.query.filter_by(id=id)
   data=request.json
-  user.update(data)
+  if data:
+    user.update(data)
   db.session.commit()
   return jsonify(user=format_user(user.one()))
 
