@@ -6,6 +6,7 @@ const UserPlan = (props) => {
   const id = useLocation().state.id;
   const [user, setUser] = useState();
   
+  
 
   return (<div>
     user_plan

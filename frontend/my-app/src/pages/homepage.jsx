@@ -23,7 +23,7 @@ const Homepage = () => {
   const handleLogin = async(e) => {
     e.preventDefault();
     if (userName !== '' && password !== ''){
-      try{
+      try {
         const resp = await axios.post(`${baseURL}/user/validate`, {email:userName, password:password});
         if (resp.data['verification']) {
           navigate('/profile', {state:{id:resp.data['id']}})
