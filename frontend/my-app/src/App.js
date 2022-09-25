@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Homepage from "./pages/homepage"
 import Profile from "./pages/profile"
 import Registration from "./pages/registration"
-import 'antd/dist/antd.css'; 
 
 const App = () => {
   return (
