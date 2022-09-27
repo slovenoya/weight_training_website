@@ -6,22 +6,32 @@ import logo from './images/icon_barbell.svg'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='container'>
       <header>
+        <Link to='/'><svg src={logo} alt="barbell-icon" className='logo'/></Link>
         <nav>
           <ul className='nav-bar-list'>
-            <li className='nav-bar-item nav-bar-logo'><img src={logo} alt="barbell-icon" width="30px"/></li>
-            <li className='nav-bar-item'>Why Us</li>
-            <li className='nav-bar-item'>Beginner</li>
-            <li className='nav-bar-item'>Experienced</li>
-            <li className='nav-bar-item'>Contact Us</li>
+            <li className='nav-bar-item'><Link to='/'>Why Us</Link></li>
+            <li className='nav-bar-item'><Link to='/'>Beginner</Link></li>
+            <li className='nav-bar-item'><Link to='/'>Experienced</Link></li>
+            <li className='nav-bar-item'><Link to='/'>Contact Us</Link></li>
             <li className='nav-bar-item nav-bar-login'><Link to='login'>Start Workout</Link></li>
           </ul>
         </nav>
       </header>
       <main>
         <section className='section-hero-page'>
-          <img src={require('./images/lifter.jpg')} alt="pic" width="300px"/>
+          <div className='hero-text'>
+            <div className='hero-slogan'>
+              <p>A smart trainer that customizes your plan, every workout. </p>
+            </div>
+            <div className='hero-description'>
+              <p></p>
+            </div>
+          </div>
+          <div className='hero-img'>
+            <img src={require('./images/lifter.jpg')} alt="pic" width="300px"/>
+          </div>
         </section>
 
         <section className='section-why-us'>

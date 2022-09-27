@@ -63,43 +63,66 @@ Medium: 11px
   box-sizing: border-box;
 }
 
-header {
-  background-color: #e3fafc;
-  height: 15vh;
-}
-
 body {
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
 }
 
+/**
+HEADER
+**/
+
+header {
+  background-color: #495057;
+  height: 8vh;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 48px;
+  color:#e9ecef;
+
+}
+
 a:link, a:visited{
   text-decoration: none;
-  color:black;
+  color:#e9ecef;
 }
 
 a:hover, a:active{
   text-decoration: none;
-  color:#1098ad;
+  color:#ced4da;
+}
+
+.logo {
+  width:50px;
 }
 
 .nav-bar-list {
   display: flex;
   flex-direction: row;
   list-style: none;
+  align-items:center;
   justify-content: right;
 }
 
 .nav-bar-item {
   font-size:16px;
-  font-weight:600;
+  font-weight:700;
   margin:15px 20px;
 }
 
+/**
+HERO PAGE
+**/
+
 .section-hero-page {
-  height:85vh;
-  background-color: #1098ad;
+  height:75vh;
+  background-color: #495057;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  color:#ced4da;
 }
 
 .section-why-us {
