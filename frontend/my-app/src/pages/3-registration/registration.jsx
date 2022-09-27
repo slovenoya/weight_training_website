@@ -1,10 +1,10 @@
-import {React, useState} from 'react'
+import {React} from 'react'
 
 const Registration = () => {
   return (
-    <html>
+    <div>
 
-    </html>
+    </div>
   )
 }
 
