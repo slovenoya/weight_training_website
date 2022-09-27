@@ -26,7 +26,11 @@ const HomePage = () => {
               <p>A smart trainer that customizes your plan, every workout. </p>
             </div>
             <div className='hero-description'>
-              <p></p>
+              <p>GymCat will maximize your gain by periodically loading and deloading workout volume, varying workout intensity, analyzing your provided data, and better your form. </p>
+            </div>
+            <div className='hero-btn'>
+              <button><Link to='/login'>START YOUR CHANGE</Link></button>
+              <button>LEARN MORE</button>
             </div>
           </div>
           <div className='hero-img'>

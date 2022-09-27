@@ -75,13 +75,12 @@ HEADER
 
 header {
   background-color: #495057;
-  height: 8vh;
   display:flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 48px;
   color:#e9ecef;
-
+  height: 7vh;
 }
 
 a:link, a:visited{
@@ -117,14 +116,33 @@ HERO PAGE
 **/
 
 .section-hero-page {
-  height:75vh;
   background-color: #495057;
   display:flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: center;
   color:#ced4da;
+  padding: 5vh 10vh;
 }
 
+.hero-text {
+  width: 27rem;
+  margin-right: 15rem;
+}
+
+.hero-slogan {
+  font-size: 32px;
+  font-weight:700;
+}
+
+.hero-description {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+/**
+WHY US PAGE
+**/
 .section-why-us {
   height:100vh;
 }
