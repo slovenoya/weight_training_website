@@ -112,17 +112,17 @@ a:hover, a:active{
   margin:15px 5px;
 }
 
-.nav-bar-login {
+.hero-button {
   padding: 10px 10px;
   background-color: #dee2e6;
   border-radius:20px;
 }
 
-.nav-bar-login:link, .nav-bar-login:visited {
+.hero-button:link, .hero-button:visited{
   color: #41474c;
 }
 
-.nav-bar-login:hover, .nav-bar-login:active {
+.hero-button:hover, .hero-button:active {
   background-color: #f1f3f5;
 }
 
@@ -137,7 +137,7 @@ HERO PAGE
   justify-content: center;
   color:#ced4da;
   height:90vh;
-  padding-top:10vh;
+  padding-top:5vh;
 }
 
 .hero-text {
@@ -145,12 +145,12 @@ HERO PAGE
   margin-right: 20vh;
   display:flex;
   flex-direction: column;
+  align-content:space-between;
 }
 
 .hero-slogan {
   font-size: 52px;
   font-weight:700;
-  display:inline-block;
 }
 
 .hero-description {
@@ -159,9 +159,20 @@ HERO PAGE
 }
 
 .hero-redirection {
-  display:flex;
+  font-size:16px;
+  font-weight:600;
 }
 
+.hero-learn-more {
+  background-color: #adb5bd;
+}
+
+.hero-learn-more:hover, .hero-learn-more:active {
+  background-color: #373c42;
+  color:#e9ecef;
+  border-style:solid;
+  border-width:2px;
+}
 
 /**
 WHY US PAGE

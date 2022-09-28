@@ -15,7 +15,7 @@ const HomePage = () => {
             <li className='nav-bar-item'><Link to='/'>Beginner</Link></li>
             <li className='nav-bar-item'><Link to='/'>Experienced</Link></li>
             <li className='nav-bar-item'><Link to='/'>Contact Us</Link></li>
-            <li className='nav-bar-item'><Link to='login' className='nav-bar-login'>Start Workout</Link></li>
+            <li className='nav-bar-item'><Link to='login' className='hero-button'>Start Workout</Link></li>
           </ul>
         </nav>
       </header>
@@ -29,8 +29,8 @@ const HomePage = () => {
               <span>GymCat will maximize your gain by periodically loading and deloading workout volume, varying workout intensity, analyzing your provided data, and better your form. </span>
             </div>
             <div className='hero-redirection'>
-              <Link to='/login' className='hero-login'>START YOUR CHANGE</Link>
-              <Link to='/#section-why-us' className='hero-learn-more'>LEARN MORE</Link>
+              <Link to='/login' className='hero-button'>START YOUR CHANGE</Link>
+              <Link to='/#section-why-us' className='hero-button hero-learn-more'>LEARN MORE</Link>
             </div>
           </div>
           <div className='hero-img'>
