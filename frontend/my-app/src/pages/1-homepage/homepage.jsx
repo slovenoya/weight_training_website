@@ -15,7 +15,7 @@ const HomePage = () => {
             <li className='nav-bar-item'><Link to='/'>Beginner</Link></li>
             <li className='nav-bar-item'><Link to='/'>Experienced</Link></li>
             <li className='nav-bar-item'><Link to='/'>Contact Us</Link></li>
-            <li className='nav-bar-item nav-bar-login'><Link to='login'>Start Workout</Link></li>
+            <li className='nav-bar-item'><Link to='login' className='nav-bar-login'>Start Workout</Link></li>
           </ul>
         </nav>
       </header>
@@ -23,14 +23,14 @@ const HomePage = () => {
         <section className='section-hero-page'>
           <div className='hero-text'>
             <div className='hero-slogan'>
-              <p>A smart trainer that customizes your plan, every workout. </p>
+              <span>A smart trainer that customizes your plan, every workout. </span>
             </div>
             <div className='hero-description'>
-              <p>GymCat will maximize your gain by periodically loading and deloading workout volume, varying workout intensity, analyzing your provided data, and better your form. </p>
+              <span>GymCat will maximize your gain by periodically loading and deloading workout volume, varying workout intensity, analyzing your provided data, and better your form. </span>
             </div>
-            <div className='hero-btn'>
-              <button><Link to='/login'>START YOUR CHANGE</Link></button>
-              <button>LEARN MORE</button>
+            <div className='hero-redirection'>
+              <Link to='/login' className='hero-login'>START YOUR CHANGE</Link>
+              <Link to='/#section-why-us' className='hero-learn-more'>LEARN MORE</Link>
             </div>
           </div>
           <div className='hero-img'>

@@ -78,14 +78,15 @@ header {
   display:flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 48px;
+  padding: 20px 48px;
   color:#e9ecef;
-  height: 7vh;
+  height: 10vh;
 }
 
 a:link, a:visited{
   text-decoration: none;
   color:#e9ecef;
+  padding: 10px;
 }
 
 a:hover, a:active{
@@ -108,7 +109,21 @@ a:hover, a:active{
 .nav-bar-item {
   font-size:16px;
   font-weight:700;
-  margin:15px 20px;
+  margin:15px 5px;
+}
+
+.nav-bar-login {
+  padding: 10px 10px;
+  background-color: #dee2e6;
+  border-radius:20px;
+}
+
+.nav-bar-login:link, .nav-bar-login:visited {
+  color: #41474c;
+}
+
+.nav-bar-login:hover, .nav-bar-login:active {
+  background-color: #f1f3f5;
 }
 
 /**
@@ -121,22 +136,30 @@ HERO PAGE
   align-items: stretch;
   justify-content: center;
   color:#ced4da;
-  padding: 5vh 10vh;
+  height:90vh;
+  padding-top:10vh;
 }
 
 .hero-text {
-  width: 27rem;
-  margin-right: 15rem;
+  width: 70vh;
+  margin-right: 20vh;
+  display:flex;
+  flex-direction: column;
 }
 
 .hero-slogan {
-  font-size: 32px;
+  font-size: 52px;
   font-weight:700;
+  display:inline-block;
 }
 
 .hero-description {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
+}
+
+.hero-redirection {
+  display:flex;
 }
 
 
