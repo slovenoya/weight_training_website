@@ -133,7 +133,7 @@ HERO PAGE
 .section-hero-page {
   background-color: #495057;
   display:grid;
-  grid-template-columns:1fr 3fr 2fr 1fr;
+  grid-template-columns:1fr 4fr 2fr 1fr;
   grid-column-gap: 10vh;
   color:#ced4da;
   height:90vh;
@@ -178,9 +178,16 @@ HERO PAGE
   border-width:2px;
 }
 
-.hero-img {
+.hero-img{
+  grid-column: 3/4;
   justify-self:center;
-  align-self: center;
+  align-self: start;
+  margin-top: 128px;
+}
+
+.hero-img img {
+  width: 50vh;
+
 }
 
 /**

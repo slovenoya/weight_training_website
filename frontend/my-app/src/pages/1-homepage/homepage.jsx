@@ -34,7 +34,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className='hero-img'>
-            <img src={require('./images/lifter.jpg')} alt="pic" width="300px"/>
+            <img src={require('./images/combine.png')} alt="pic"/>
           </div>
         </section>
 
