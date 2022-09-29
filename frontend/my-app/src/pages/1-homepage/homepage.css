@@ -181,4 +181,30 @@ WHY US PAGE
   height:100vh;
 }
 
+/*
+BEGINNER PAGE
+*/
+.section-for-beginners {
+  height:100vh;
+  background-color: #495057;
+
+}
+
+/*
+EXPERIENCED PAGE
+*/
+.section-for-experienced {
+  height:100vh;
+}
+
+/*
+CONTACT US
+*/
+
+.section-contact-us {
+  height:20vh;
+  background-color: #495057;
+
+}
+
 
