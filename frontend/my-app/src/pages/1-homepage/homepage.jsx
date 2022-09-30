@@ -1,5 +1,6 @@
 import {React} from 'react';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
+import {HashLink as Link} from 'react-router-hash-link';
 
 import './homepage.css';
 import logo from './images/icon_barbell.svg'
@@ -11,10 +12,10 @@ const HomePage = () => {
         <Link to='/'><svg src={logo} alt="barbell-icon" className='logo'/></Link>
         <nav>
           <ul className='nav-bar-list'>
-            <li className='nav-bar-item'><Link to='/'>Why Us</Link></li>
-            <li className='nav-bar-item'><Link to='/'>Beginner</Link></li>
-            <li className='nav-bar-item'><Link to='/'>Experienced</Link></li>
-            <li className='nav-bar-item'><Link to='/'>Contact Us</Link></li>
+            <li className='nav-bar-item'><Link to='/#why-us' smooth>Why Us</Link></li>
+            <li className='nav-bar-item'><Link to='#beginner' smooth>Beginner</Link></li>
+            <li className='nav-bar-item'><Link to='#experienced' smooth>Experienced</Link></li>
+            <li className='nav-bar-item'><Link to='#contact-us' smooth>Contact Us</Link></li>
             <li className='nav-bar-item'><Link to='login' className='hero-button'>Start Workout</Link></li>
           </ul>
         </nav>
@@ -30,7 +31,7 @@ const HomePage = () => {
             </div>
             <div className='hero-redirection'>
               <Link to='/login' className='hero-button'>START YOUR CHANGE</Link>
-              <Link to='/#section-why-us' className='hero-button hero-learn-more'>LEARN MORE</Link>
+              <Link to='#why-us' className='hero-button hero-learn-more' smooth>LEARN MORE</Link>
             </div>
           </div>
           <div className='hero-img'>
@@ -38,7 +39,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className='section-why-us'>
+        <section className='section-why-us' id='why-us'>
           <div className='why-us-header'>
             <span className='why-us-header-slogan'>GymCat: Your All In One Trainer App</span>
           </div>
@@ -78,15 +79,15 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className='section-for-beginners'>
+        <section className='section-for-beginners' id='beginner'>
 
         </section>
 
-        <section className='section-for-experienced'>
+        <section className='section-for-experienced' id='experienced'>
 
         </section>
 
-        <section className='section-contact-us'>
+        <section className='section-contact-us' id='contact-us'>
 
         </section>
       </main>
