@@ -193,9 +193,10 @@ HERO PAGE
 WHY US PAGE
 **/
 .section-why-us {
-  height:100vh;
   display:grid;
-  grid-template-rows: 15vh 85vh;
+  grid-template-rows: 15vh auto;
+  background-color: #D6A99A;
+  color:#e2e8ed;
 }
 
 .why-us-header {
@@ -208,13 +209,13 @@ WHY US PAGE
 }
 
 .why-us-container {
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display:flex;
+  flex-direction: column;
 }
 
 .why-us-container img {
   width:30vh;
+  border-radius: 10px;
 }
 
 /*
