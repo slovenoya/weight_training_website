@@ -39,7 +39,43 @@ const HomePage = () => {
         </section>
 
         <section className='section-why-us'>
+          <div className='why-us-header'>
+            <span className='why-us-header-slogan'>GymCat: Your All In One Trainer App</span>
+          </div>
 
+          <div className='why-us-container'>
+            <div className='why-us-item why-us-progressive'>
+              <img src="/" alt="pic of weight stacked" />
+              <div className='why-us-item-text'>
+                <span className='why-us-item-slogan'>Easy, acurate, and </span>
+                <span className='why-us-item-description'></span>
+              </div>
+            </div>
+
+            <div className='why-us-item why-us-customize'>
+              <img src="/" alt="pic of measuring" />
+              <div className='why-us-item-text'>
+                <span className='why-us-item-slogan'></span>
+                <span className='why-us-item-description'></span>
+              </div>
+            </div>
+
+            <div className='why-us-item why-us-classic'>
+              <img src="/" alt="pic of famous body builders" />
+              <div className='why-us-item-text'>
+                <span className='why-us-item-slogan'></span>
+                <span className='why-us-item-description'></span>
+              </div>
+            </div>
+
+            <div className='why-us-item why-us-form'>
+              <img src="/" alt="pic of form help" />
+              <div className='why-us-item-text'>
+                <span className='why-us-item-slogan'></span>
+                <span className='why-us-item-description'></span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className='section-for-beginners'>

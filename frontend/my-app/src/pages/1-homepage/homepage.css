@@ -151,7 +151,7 @@ HERO PAGE
 .hero-slogan {
   font-size: 52px;
   font-weight:700;
-  margin-top:128px;
+  margin-top:96px;
 }
 
 .hero-description {
@@ -187,7 +187,6 @@ HERO PAGE
 
 .hero-img img {
   width: 50vh;
-
 }
 
 /**
@@ -195,6 +194,23 @@ WHY US PAGE
 **/
 .section-why-us {
   height:100vh;
+  display:grid;
+  grid-template-rows: 15vh 85vh;
+}
+
+.why-us-header {
+  margin: auto auto;
+}
+
+.why-us-header-slogan {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.why-us-container {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /*
