@@ -79,14 +79,34 @@ const HomePage = () => {
                 <span className='why-us-item-slogan'>Form Tutorial</span>
                 <span className='why-us-item-description'>Compiled form tutorials are provided
                 under different workout sets, we also provide web crawlers to find the most viewed
-                tutorials of each workout movements for you, no need to switch between websites</span>
+                tutorials of each workout movements for you, no need to switch between websites. </span>
               </div>
             </div>
           </div>
         </section>
 
         <section className='section-for-beginners' id='beginner'>
-          <div></div>
+          <div className='beginner-header'>
+            <span className='beginner-header-slogan'>Your Journey of Getting Stronger</span>
+          </div>
+          <div className='beginner-container'>
+            <div className='beginner-item beginner-goal-setting'>
+              <img src="" alt="goal" />
+
+            </div>
+            <div className='beginner-item beginner-risk-avoid'>
+              <img src="" alt="avoiding risk" />
+
+            </div>
+            <div className='beginner-item beginner-form-watching'>
+              <img src="" alt="form-watching" />
+
+            </div>
+            <div className='beginner-item beginner-fast-growth'>
+              <img src="" alt="plan changes" />
+
+            </div>
+          </div>
         </section>
 
         <section className='section-for-experienced' id='experienced'>

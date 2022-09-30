@@ -201,9 +201,7 @@ WHY US PAGE
 }
 
 .why-us-header {
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:64px;
+  margin:96px auto;
 }
 
 .why-us-header-slogan {
@@ -214,7 +212,7 @@ WHY US PAGE
 .why-us-container {
   display:flex;
   flex-direction: column;
-  margin-bottom:10vh;
+  margin-bottom:96px;
 }
 
 .why-us-container img {
@@ -227,11 +225,13 @@ WHY US PAGE
   align-items: center;
   justify-content: center;
   gap: 20vh;
-  margin-top:96px;
+  margin: 24px 128px;
+  padding:48px;
+  background-color: rgba(220, 227, 232, 0.618);
 }
 
 .why-us-item:first-child {
-  margin-top: 64px;
+  margin-top: 128px;
 }
 
 .why-us-item:nth-child(even) {
@@ -252,16 +252,32 @@ WHY US PAGE
 
 .why-us-item-description {
   font-size: 20px;
-  margin-top:48px;
+  margin-top:30px;
 }
 
 /*
 BEGINNER PAGE
 */
 .section-for-beginners {
-  height:100vh;
+  display:grid;
+  grid-template-rows: 15vh auto;
   background-color: #495057;
   color:#e9ecef;
+}
+
+.beginner-header {
+  margin: auto auto;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.beginner-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25vh;
+  height: 85vh;
 }
 
 /*
