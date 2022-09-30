@@ -44,7 +44,7 @@ const HomePage = () => {
 
           <div className='why-us-container'>
             <div className='why-us-item why-us-progressive'>
-              <img src="/" alt="pic of weight stacked" />
+              <img src={require('./images/plate-stack.jpg')} alt="stacked plates" />
               <div className='why-us-item-text'>
                 <span className='why-us-item-slogan'>Easy, acurate, and </span>
                 <span className='why-us-item-description'></span>
@@ -52,7 +52,7 @@ const HomePage = () => {
             </div>
 
             <div className='why-us-item why-us-customize'>
-              <img src="/" alt="pic of measuring" />
+              <img src={require('./images/measure-arm.jpg')} alt="measuring bicepts" />
               <div className='why-us-item-text'>
                 <span className='why-us-item-slogan'></span>
                 <span className='why-us-item-description'></span>
@@ -60,7 +60,7 @@ const HomePage = () => {
             </div>
 
             <div className='why-us-item why-us-classic'>
-              <img src="/" alt="pic of famous body builders" />
+              <img src={require('./images/greek-god.jpg')} alt="greek god statue" />
               <div className='why-us-item-text'>
                 <span className='why-us-item-slogan'></span>
                 <span className='why-us-item-description'></span>
@@ -68,7 +68,7 @@ const HomePage = () => {
             </div>
 
             <div className='why-us-item why-us-form'>
-              <img src="/" alt="pic of form help" />
+              <img src={require('./images/form-watch.jpg')} alt="watchout for form" />
               <div className='why-us-item-text'>
                 <span className='why-us-item-slogan'></span>
                 <span className='why-us-item-description'></span>

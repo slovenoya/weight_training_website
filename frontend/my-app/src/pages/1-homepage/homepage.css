@@ -213,6 +213,10 @@ WHY US PAGE
   grid-template-rows: repeat(2, 1fr);
 }
 
+.why-us-container img {
+  width:30vh;
+}
+
 /*
 BEGINNER PAGE
 */
