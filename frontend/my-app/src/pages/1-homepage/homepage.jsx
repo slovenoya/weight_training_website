@@ -92,7 +92,15 @@ const HomePage = () => {
           <div className='beginner-container'>
             <div className='beginner-item beginner-goal-setting'>
               <img src="" alt="goal" />
+              <div>
+                <span>
 
+                </span>
+
+                <span>
+                  
+                </span>
+              </div>
             </div>
             <div className='beginner-item beginner-risk-avoid'>
               <img src="" alt="avoiding risk" />
