@@ -276,9 +276,15 @@ BEGINNER PAGE
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 25vh;
+  /* gap: 25vh; */
   height: 85vh;
 }
+
+.beginner-container img {
+  width: 20vh;
+}
+
+
 
 /*
 EXPERIENCED PAGE

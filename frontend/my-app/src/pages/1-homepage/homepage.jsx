@@ -91,28 +91,32 @@ const HomePage = () => {
           </div>
           <div className='beginner-container'>
             <div className='beginner-item beginner-goal-setting'>
-              <img src="" alt="goal" />
+              <img src={require('./images/goal.jpg')} alt="goal" />
               <div>
-                <span>
-
+                <span class='beginner-item-title'>
+                  Make a Goal
                 </span>
-
-                <span>
-                  
+                <span className='beginner-item-description'>
+                  Beginners have the fastest gain if they are properly instructed, and setting a goal is very important for beginners who don't have a lot of knowledge for workout. 
                 </span>
               </div>
             </div>
-            <div className='beginner-item beginner-risk-avoid'>
-              <img src="" alt="avoiding risk" />
-
-            </div>
             <div className='beginner-item beginner-form-watching'>
-              <img src="" alt="form-watching" />
-
+              <img src={require('./images/form-watch.jpg')} alt="form-watching" />
+              <span class='beginner-item-title'>Exercise Correctly</span>
+              <span className='beginner-item-description'>Gymcat will provide videos and instructions on how to correctly perform the workout, and a good form is the cornerstone for making progress. </span>
             </div>
-            <div className='beginner-item beginner-fast-growth'>
-              <img src="" alt="plan changes" />
 
+            <div className='beginner-item beginner-risk-avoid'>
+              <img src={require('./images/risk.jpg')} alt="avoiding risk" />
+              <span class='beginner-item-title'>Mobility Check</span>
+              <span className='beginner-item-description'>Mobility issues could lead to serious injuries and form problem. It is impossible to have a good form without a good mobility, and Gymcat will check and improve your mobility. </span>
+            </div>
+
+            <div className='beginner-item beginner-fast-growth'>
+              <img src={require('./images/growth.jpg')} alt="plan changes" />
+              <span class='beginner-item-title'>Add Weight</span>
+              <span className='beginner-item-description'>Intensiveness of workout will improve your body, and knowing how much to add is very important. Gymcat will help you to bookkeep your progress and automatically add weight in your plan. </span>
             </div>
           </div>
         </section>
