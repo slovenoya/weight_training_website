@@ -92,31 +92,50 @@ const HomePage = () => {
           <div className='beginner-container'>
             <div className='beginner-item beginner-goal-setting'>
               <img src={require('./images/goal.jpg')} alt="goal" />
-              <div>
-                <span class='beginner-item-title'>
-                  Make a Goal
-                </span>
-                <span className='beginner-item-description'>
-                  Beginners have the fastest gain if they are properly instructed, and setting a goal is very important for beginners who don't have a lot of knowledge for workout. 
-                </span>
-              </div>
+              <span className='beginner-text beginner-item-title'>Goal Setup</span>
+              <ul className='beginner-text'>
+                <li>Know your body type</li>
+                <li>Estimate your change</li>
+                <li>Record your current level</li>
+                <li>Set a practical goal</li>
+              </ul>
+              <Link to='/' className='beginner-btn'>Learn More</Link>
             </div>
+
             <div className='beginner-item beginner-form-watching'>
-              <img src={require('./images/form-watch.jpg')} alt="form-watching" />
-              <span class='beginner-item-title'>Exercise Correctly</span>
-              <span className='beginner-item-description'>Gymcat will provide videos and instructions on how to correctly perform the workout, and a good form is the cornerstone for making progress. </span>
+              <img src={require('./images/form.jpg')} alt="form-watching" />
+              <span className='beginner-text beginner-item-title'>Form Check</span>
+              <ul className='beginner-text'>
+                <li>Movement Trace</li>
+                <li>Decenter with Control</li>
+                <li>Isolize Muscle</li>
+                <li>Tempo Control</li>
+              </ul>
+              <Link to='/' className='beginner-btn'>Learn More</Link>
             </div>
 
             <div className='beginner-item beginner-risk-avoid'>
               <img src={require('./images/risk.jpg')} alt="avoiding risk" />
-              <span class='beginner-item-title'>Mobility Check</span>
-              <span className='beginner-item-description'>Mobility issues could lead to serious injuries and form problem. It is impossible to have a good form without a good mobility, and Gymcat will check and improve your mobility. </span>
+              <span className='beginner-text beginner-item-title'>Mobility Check</span>
+              <ul className='beginner-text'>
+                <li>Avoid Injury</li>
+                <li>Better Form</li>
+                <li>Good Isolation</li>
+                <li>Enables Higher Intesity</li>
+              </ul>
+              <Link to='/' className='beginner-btn'>Learn More</Link>
             </div>
 
             <div className='beginner-item beginner-fast-growth'>
               <img src={require('./images/growth.jpg')} alt="plan changes" />
-              <span class='beginner-item-title'>Add Weight</span>
-              <span className='beginner-item-description'>Intensiveness of workout will improve your body, and knowing how much to add is very important. Gymcat will help you to bookkeep your progress and automatically add weight in your plan. </span>
+              <span className='beginner-text beginner-item-title'>Auto Weight</span>
+              <ul  className='beginner-text'>
+                <li>Progressive weight</li>
+                <li>Every set is a challenge</li>
+                <li>Quantitize your gain</li>
+                <li>Easy Bookkeeping</li>
+              </ul>
+              <Link to='/' className='beginner-btn'>Learn More</Link>
             </div>
           </div>
         </section>

@@ -275,16 +275,65 @@ BEGINNER PAGE
   display:flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  /* gap: 25vh; */
+  align-items: flex-start;
+  gap: 3.5vw;
   height: 85vh;
+  margin: 0 48px;
+}
+
+.beginner-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9ecefe9;
+  height: 70vh;
+  width: 20vw;
+  margin-top: 5vh;
+  border-radius: 15px;
 }
 
 .beginner-container img {
-  width: 20vh;
+  max-width: 100%;
+  border-radius:15px 15px 0px 0px;
 }
 
 
+.beginner-text {
+  color: #373c42;
+}
+
+.beginner-item-title {
+  margin-top: 48px;
+  margin-left: 36px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.beginner-container ul {
+  list-style: none;
+  margin-top: 36px;
+  margin-left: 36px;
+  color: #373c42c5;
+  font-size: 18px;
+}
+
+.beginner-container li {
+  margin-bottom: 20px;
+}
+
+.beginner-btn:link, .beginner-btn:visited {
+  display:inline-block;
+  align-self: flex-end;
+  background-color: #373c42;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-top: 24px;
+  margin-right: 30px;
+}
+
+.beginner-btn:hover, .beginner-btn:active {
+  background-color: #373c42e2;
+  color:#d7dee4;
+}
 
 /*
 EXPERIENCED PAGE
