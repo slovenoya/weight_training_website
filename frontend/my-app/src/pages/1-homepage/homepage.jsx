@@ -141,11 +141,69 @@ const HomePage = () => {
         </section>
 
         <section className='section-for-experienced' id='experienced'>
+          <div className='experienced-header'>
+            <span className='experienced-header-title'>Your Journey of Getting Stronger</span>
+          </div>
+          <div className='experienced-container'>
+            <div className='experienced-item'>
+              <img src={require('./images/goal.jpg')} alt="goal" />
+              <div className='experienced-text'>
+                <span className='experienced-text experienced-item-title'>Goal Setup</span>
+                <ul>
+                  <li>Know your body type</li>
+                  <li>Estimate your change</li>
+                  <li>Record your current level</li>
+                  <li>Set a practical goal</li>
+                </ul>
+                <Link to='/' className='experienced-btn'>Learn More</Link>
+              </div>
+            </div>
 
+            <div className='experienced-item'>
+              <img src={require('./images/form.jpg')} alt="form-watching" />
+              <div className='experienced-text'>
+                <span className='experienced-text'>Form Check</span>
+                <ul>
+                  <li>Movement Trace</li>
+                  <li>Decenter with Control</li>
+                  <li>Isolize Muscle</li>
+                  <li>Tempo Control</li>
+                </ul>
+                <Link to='/' className='experienced-btn'>Learn More</Link>
+              </div>
+            </div>
+
+            <div className='experienced-item'>
+              <img src={require('./images/risk.jpg')} alt="avoiding risk" />
+              <div className='experienced-text'>
+                <span className='experienced-text experienced-item-title'>Mobility Check</span>
+                <ul>
+                  <li>Avoid Injury</li>
+                  <li>Better Form</li>
+                  <li>Good Isolation</li>
+                  <li>Enables Higher Intesity</li>
+                </ul>
+                <Link to='/' className='experienced-btn'>Learn More</Link>
+              </div>
+            </div>
+
+            <div className='experienced-item'>
+              <img src={require('./images/growth.jpg')} alt="plan changes" />
+              <div className='experienced-text'>
+                <span className='experienced-text experienced-item-title'>Auto Weight</span>
+                <ul>
+                  <li>Progressive weight</li>
+                  <li>Every set is a challenge</li>
+                  <li>Quantitize your gain</li>
+                  <li>Easy Bookkeeping</li>
+                </ul>
+                <Link to='/' className='experienced-btn'>Learn More</Link>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className='section-contact-us' id='contact-us'>
-
         </section>
       </main>
     </div>
