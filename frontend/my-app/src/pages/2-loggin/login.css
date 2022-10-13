@@ -55,14 +55,58 @@ Medium: 11px
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  display:flex;
+  flex-direction: row-reverse;
+} 
 
-* {
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+/* LOGIN SECTION */
+
+.login-section {
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+.login-head {
+  margin: 0 auto;
+  margin-top: 64px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 96px;
+}
+
+.login-body {
+  margin-top: 128px;
+  margin-left: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px
+}
+
+.login-input {
+  display: flex;
+  flex-direction: column;
+  gap: 48px
+}
+
+.login-input input {
+  border:black;
+  border-width: 4px;
+  background-color: rgb(84, 74, 74);
+}
+
+/* IMAGE SECTION */
+
+.image-section {
+  width: 55vw;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: 100%;
 }
