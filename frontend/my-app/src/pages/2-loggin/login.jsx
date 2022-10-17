@@ -1,10 +1,15 @@
 import {React} from 'react'
 import { useState } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
 import './login.css';
+
+const baseURL =  "http://127.0.0.1:5000";
 
 const Login = () => {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
+  const navigate = useNavigate();
 
   const changeEmail = e => {
     setEmail(e.target.value)
@@ -14,9 +19,22 @@ const Login = () => {
     setPassword(e.target.value)
   }
 
-  const login = () => {
-
-    console.log('trying to login ' + {email} + {password})
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    if (email !== '' && password !== ''){
+      try {
+        const resp = await axios.post(`${baseURL}/user/validate`, {email:email, password:password});
+        if (resp.data['verification']) {
+          navigate('/profile', {state:{id:resp.data['id']}})
+        } else {
+          alert('incorrect username or password')
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert('You need to input your email and password')
+    }
   }
 
   return (
@@ -37,12 +55,9 @@ const Login = () => {
             <input type="password" onChange={changePassword} required/>
           </div>
           <div className='login-btn'>
-            <button onClick={login}>Login</button>
+            <button onClick={handleLogin}>Login</button>
           </div>
         </div>
-      </section>
-      <section className='image-section'>
-        <img src={require('./images/plate-stack.jpg')} alt="barbell" />
       </section>
     </div>
   )
