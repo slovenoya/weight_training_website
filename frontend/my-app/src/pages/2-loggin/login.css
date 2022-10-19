@@ -1,61 +1,29 @@
 .login-page {
   height: 100vh;
   width: 100vw;
-  display:flex;
-  flex-direction: row-reverse;
-} 
-
-/* LOGIN SECTION */
-
-.login-section {
-  width: 45vw;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #dee2e6;
+
 }
 
-.login-head {
-  margin: 0 auto;
-  margin-top: 64px;
-
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 96px;
-}
-
-.login-body {
-  margin-top: 128px;
-  margin-left: 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 48px
-}
-
-.login-input {
-  display: flex;
-  flex-direction: column;
-  gap: 48px
+  background-color: #adb5bd;
+  border-radius: 25px;
 }
 
 .login-input input {
+  background-color: #adb5bd;
   border-bottom: 1px solid black;
   border-color: black;
-  padding: 20px;
   font-size: 16px;
   width: 30vw;
 }
 
 .login-input input:focus {
   outline: 0;
-}
-
-/* IMAGE SECTION */
-
-.image-section {
-  width: 55vw;
-}
-
-.image-section img {
-  max-width: 100%;
-  height: 100%;
 }

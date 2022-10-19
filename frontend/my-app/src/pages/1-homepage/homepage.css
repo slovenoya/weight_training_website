@@ -145,7 +145,7 @@ HERO PAGE
   justify-self:center;
   align-self: stretch;
   display:flex;
-  justify-content:start;
+  justify-content:flex-start;
   flex-direction: column;
   margin-bottom: 96px;
 }
