@@ -1,2 +1,4 @@
 #!/bin/bash
-. /Users/ryan/.local/share/virtualenvs/ryan-a3k9euAf/bin/activate
+npm install
+cd frontend/my-app
+npm start
