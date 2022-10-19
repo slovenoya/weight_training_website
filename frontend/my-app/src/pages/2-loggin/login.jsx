@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import './login.css';
 
+import video from './video/login-vid.mp4'
+
 const baseURL =  "http://127.0.0.1:5000";
 
 const Login = () => {
@@ -21,7 +23,7 @@ const Login = () => {
 
   const handleLogin = async(e) => {
     e.preventDefault();
-    if (email !== '' && password !== ''){
+    if (email !== '' && password !== '') {
       try {
         const resp = await axios.post(`${baseURL}/user/validate`, {email:email, password:password});
         if (resp.data['verification']) {
@@ -39,26 +41,30 @@ const Login = () => {
 
   return (
     <div className='login-page'>
-      <section className='login-section'>
-        <div className='login-head'>
-          <p>Login</p>
-          <p>Start Your Change Today!</p>
+      <div className='login-container'>
+        <div className='login-video'>
+          <video src={video} autoPlay loop muted/>
         </div>
-
-        <div className='login-body'>
-          <div className='login-input login-email'>
-            <p>Email</p>
-            <input type="text" onChange={changeEmail} required/>
+        <div className='login-form'>
+          <div className='login-head'>
+            <p>Login</p>
+            <p>Start Your Change Today!</p>
           </div>
-          <div className='login-input login-password'>
-            <p>Password</p>
-            <input type="password" onChange={changePassword} required/>
-          </div>
-          <div className='login-btn'>
-            <button onClick={handleLogin}>Login</button>
+          <div className='login-body'>
+            <div className='login-input login-email'>
+              <p>Email</p>
+              <input type="text" onChange={changeEmail} required/>
+            </div>
+            <div className='login-input login-password'>
+              <p>Password</p>
+              <input type="password" onChange={changePassword} required/>
+            </div>
+            <div className='login-btn'>
+              <button onClick={handleLogin}>Login</button>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
