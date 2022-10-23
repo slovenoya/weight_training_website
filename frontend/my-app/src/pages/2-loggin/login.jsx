@@ -42,9 +42,6 @@ const Login = () => {
   return (
     <div className='login-page'>
       <div className='login-container'>
-        <div className='login-video'>
-          <video src={video} autoPlay loop muted/>
-        </div>
         <div className='login-form'>
           <div className='login-head'>
             <p>Login</p>
