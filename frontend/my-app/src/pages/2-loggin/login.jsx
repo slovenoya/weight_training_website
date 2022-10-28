@@ -2,9 +2,13 @@ import {React} from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import './login.css';
+import {HashLink as Link} from 'react-router-hash-link';
 
-import video from './video/login-vid.mp4'
+import userLogo from './images/user.svg';
+import keyLogo from './images/key.svg'
+import loginVideo from './video/login-vid.mp4'
+
+import './login.css';
 
 const baseURL =  "http://127.0.0.1:5000";
 
@@ -39,28 +43,36 @@ const Login = () => {
     }
   }
 
+  const handleRegister = () => {
+    navigate('/registration')
+  }
+
   return (
-    <div className='login-page'>
-      <div className='login-container'>
-        <div className='login-video'>
-          <video src={video} autoPlay loop muted/>
-        </div>
+    <div>
+      <video src={loginVideo} autoPlay muted loop />
+    
+      <div className='login-page'>
         <div className='login-form'>
           <div className='login-head'>
-            <p>Login</p>
-            <p>Start Your Change Today!</p>
+            {/* <p className='login-title'>Welcome Back!</p> */}
+            <p className='login-slogan'>Keep Changing</p>
           </div>
           <div className='login-body'>
             <div className='login-input login-email'>
-              <p>Email</p>
-              <input type="text" onChange={changeEmail} required/>
+              <img src={userLogo} alt='user icon' />
+              <input type="text" onChange={changeEmail} required placeholder='Enter Username'/>
             </div>
             <div className='login-input login-password'>
-              <p>Password</p>
-              <input type="password" onChange={changePassword} required/>
+              <img src={keyLogo} alt='key icon' />
+              <input type="password" onChange={changePassword} required placeholder='Enter Password'/>
             </div>
-            <div className='login-btn'>
-              <button onClick={handleLogin}>Login</button>
+            <div className='login-btn' >
+              <button onClick={handleLogin} className='log-btn'>
+                Log In
+              </button>
+              <button onClick={handleRegister} className='reg-btn'>
+                Sign Up
+              </button>
             </div>
           </div>
         </div>
