@@ -6,52 +6,56 @@ import './registration.css';
 const baseURL =  "http://127.0.0.1:5000";
 
 function Registration() {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
 
   const navigate = useNavigate()
-  const changeFirstName = e =>  {setFirstName(e.target.value); console.log(email)}
-  const changeLastName = e =>  {setLastName(e.target.value); console.log(email)}
   const changeEmail = e =>  {setEmail(e.target.value); console.log(email)}
   const changePassword = e =>  {setPassword(e.target.value)}
   const changeConfirmPass = e =>  {setConfirmPass(e.target.value)}
 
   const handleRegister = async(e) => {
     e.preventDefault();
+    if (password === '' || confirmPass === '' || email === '') {
+      alert('You need to give us your information');
+      return false;
+    }
+
     if (password !== confirmPass) {
       alert('password doesn\'t match!');
       return false;
     }
     const user = {email:{email}, password:{password}};
-    try {
-      const resp = await axios.post(`${baseURL}/user`, user);
-      if (resp.data['user'] != null){
-        navigate('/')
-      } else {
-        alert('email already used')
-      }
-    } catch (error) {
-      console.log(error);
-      return false;
+    if (user !== null) {
+      navigate('/profile')
     }
+    // try {
+    //   const resp = await axios.post(`${baseURL}/user`, user);
+    //   if (resp.data['user'] != null){
+    //     navigate('/')
+    //   } else {
+    //     alert('email already used')
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    //   return false;
+    // }
   }
 
   return (
     <div>
       <div className='reg-page'>
         <div className='reg-head'>
-          
+          Start Changing
         </div>
         <form action="submit" className='reg-form'>
-          <input type="text" placeholder='First Name' onChange={changeFirstName}/>
-          <input type="text" placeholder='Last Name' onChange={changeLastName}/>
-          <input type="text" placeholder='Email' onChange={changeEmail}/>
-          <input type="password" placeholder='Password' onChange={changePassword}/>
-          <input type="password" placeholder='Confirm Password' onChange={changeConfirmPass}/>
-          <button onClick={handleRegister}>submit</button>
+          <div className='reg-input'>
+            <input type="text" placeholder='Email' onChange={changeEmail}/>
+            <input type="password" placeholder='Password' onChange={changePassword}/>
+            <input type="password" placeholder='Confirm Password' onChange={changeConfirmPass}/>
+          </div>
+          <button onClick={handleRegister} className='reg-btn'>Register</button>
         </form>
       </div>
       
