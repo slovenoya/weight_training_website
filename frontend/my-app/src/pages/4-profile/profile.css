@@ -1,0 +1,41 @@
+.pro-page {
+  display:grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.side-bar {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  border-right: 1px solid rgb(239, 231, 231);
+}
+
+.side-bar-icon {
+  margin:64px 32px;
+  color:rgb(70, 67, 67);
+  font-size: 36px;
+}
+
+.side-bar-item {
+  font-size: 16px;
+  font-weight: 600;
+  color:rgb(70, 67, 67);
+  display: flex;
+  padding: 20px;
+  margin: 16px 16px;
+  cursor: pointer;
+}
+
+.side-bar-item:hover {
+  background-color: rgba(241, 241, 238, 0.949);
+  border-radius: 14px;
+}
+
+.open {
+  border-radius: 14px;
+  background-color: rgba(241, 241, 238, 0.654);
+}
+
+.side-bar img {
+  width: 20px;
+  margin-right: 24px;
+}
