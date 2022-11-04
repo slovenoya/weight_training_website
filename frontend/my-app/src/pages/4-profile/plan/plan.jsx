@@ -1,9 +1,9 @@
 import {React} from 'react'
 
-const BodyData = () => {
+const Plan = () => {
   return (<div>
-    body
+    plan
   </div>);
 }
 
-export default BodyData;
+export default Plan;
