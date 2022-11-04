@@ -1,13 +1,10 @@
 import {React} from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
-import {HashLink as Link} from 'react-router-hash-link';
-
+import {useNavigate} from "react-router-dom";
 import userLogo from './images/user.svg';
 import keyLogo from './images/key.svg'
 import loginVideo from './video/login-vid.mp4'
-
 import './login.css';
 
 const baseURL =  "http://127.0.0.1:5000";

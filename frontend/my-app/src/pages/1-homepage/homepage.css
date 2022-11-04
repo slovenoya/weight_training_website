@@ -137,7 +137,6 @@ HERO PAGE
   grid-template-columns:1fr 4fr 2fr 1fr;
   grid-column-gap: 10vh;
   color:#ced4da;
-  height:90vh;
 }
 
 .hero-text {

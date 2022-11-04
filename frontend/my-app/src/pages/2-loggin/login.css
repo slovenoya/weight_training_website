@@ -41,19 +41,14 @@ video {
 }
 
 .login-head {
+  margin-top: 64px;
   text-align: center;
   color:#eff4f8;
 }
 
-.login-title {
-  margin-bottom: 8px;
-  font-size: 80px;
-  font-weight: 600;
-}
-
 .login-slogan {
   margin-bottom: 96px;
-  font-size: 80px;
+  font-size: 64px;
   font-weight: 600;
 }
 
