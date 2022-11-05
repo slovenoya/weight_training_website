@@ -6,10 +6,10 @@ class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   email = db.Column(db.String(50), nullable=False, unique=True)
   password = db.Column(db.String(50), nullable=False)
-  first_name = db.Column(db.String(20), nullable=False)
-  last_name = db.Column(db.String(20), nullable=False)
-  gender = db.Column(db.Boolean, nullable=False)
-  age = db.Column(db.Integer, nullable=False)
+  first_name = db.Column(db.String(20), nullable=True)
+  last_name = db.Column(db.String(20), nullable=True)
+  gender = db.Column(db.Boolean, nullable=True)
+  age = db.Column(db.Integer, nullable=True)
 
   # body information of a user
   chest_cir = db.Column(db.Float, nullable=True)

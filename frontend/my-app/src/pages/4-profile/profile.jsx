@@ -1,9 +1,9 @@
 import {React, useState, useEffect} from 'react'
 import {useNavigate} from "react-router-dom";
-import Dashboard from './dashboard/Dashboard'
-import Plan from './plan/plan'
-import Template from './template_page/template'
-import Train from './train/train'
+import Dashboard from './components/dashboard/Dashboard'
+import Plan from './components/plan/plan'
+import Template from './components/template_page/template'
+import Train from './components/exercise/exercise'
 import './profile.css';
 import plan from './images/plan.png'
 import train from './images/train.png'
