@@ -4,6 +4,6 @@
 
 .exercise-container {
   display: flex;
-  gap: 96px;
-  flex-wrap:wrap
+  gap: 128px;
+  flex-wrap:wrap;
 }
