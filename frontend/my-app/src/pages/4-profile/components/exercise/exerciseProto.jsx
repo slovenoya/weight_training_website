@@ -1,8 +1,12 @@
 import {React} from 'react'
+import './exercise-proto.css'
 
-const ExerciseProto = () => {
+
+const ExerciseProto = (exercise) => {
   return (<div>
-    Exercise
+    <p>{exercise.name}</p>
+    <p>{exercise.description}</p>
+    <p>{exercise.type}</p>
   </div>);
 }
 
