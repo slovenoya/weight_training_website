@@ -1,0 +1,9 @@
+.page-container {
+  margin:128px 128px;
+}
+
+.exercise-container {
+  display: flex;
+  gap: 128px;
+  flex-wrap:wrap;
+}

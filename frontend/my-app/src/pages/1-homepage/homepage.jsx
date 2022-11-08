@@ -28,7 +28,7 @@ const HomePage = () => {
               <span>GymCat will maximize your gain by periodically loading and deloading workout volume, varying workout intensity, analyzing your provided data, and better your form. </span>
             </div>
             <div className='hero-redirection'>
-              <Link to='/login' className='hero-button'>START YOUR CHANGE</Link>
+              <Link to='/registration' className='hero-button'>START YOUR CHANGE</Link>
               <Link to='#why-us' className='hero-button hero-learn-more' smooth>LEARN MORE</Link>
             </div>
           </div>

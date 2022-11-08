@@ -2,6 +2,6 @@ from sre_constants import FAILURE, SUCCESS
 from flask import Blueprint, jsonify, request
 import sqlalchemy
 from extensions import db
-from models.exercise import Exercise
+from models.pr import PersonalRecord
 
-exercise = Blueprint('exercise', __name__)
+pr = Blueprint('personal_records', __name__)
