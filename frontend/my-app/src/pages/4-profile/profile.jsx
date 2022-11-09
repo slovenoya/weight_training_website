@@ -89,7 +89,7 @@ const Profile = () => {
           <p>LOG OUT</p>
         </div>
       </div>
-      <div>
+      <div className='content'>
         {Content}
       </div>
     </div>

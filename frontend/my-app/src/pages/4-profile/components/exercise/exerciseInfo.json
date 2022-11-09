@@ -1,9 +1,29 @@
 [
-  {"id":1, "name":"Bench Press", "description":"push harder!", "type":"chest", "video":null}, 
-  {"id":2, "name":"Squat", "description":"Light weight baby", "type":"leg", "video":null}, 
-  {"id":3, "name":"pull up", "description":"darken the sky", "type":"back", "video":null}, 
-  {"id":4, "name":"push up", "description":"better chest ", "type":"chest", "video":null}, 
-  {"id":5, "name":"lat pull down", "description":"side of your lat", "type":"back", "video":null}, 
-  {"id":6, "name":"deadlift", "description":"strong leg", "type":"leg", "video":null}, 
-  {}
+  {"id":1, "name":"Bench Press", "description":"push harder!", "type":"chest", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":2, "name":"Squat", "description":"Light weight baby", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":3, "name":"pull up", "description":"darken the sky", "type":"back", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":4, "name":"push up", "description":"better chest ", "type":"chest", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":5, "name":"lat pull down", "description":"side of your lat", "type":"back", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":6, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":7, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":8, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":9, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":10, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":11, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":12, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":13, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":15, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":16, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":17, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":18, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":19, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":20, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":21, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":22, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":23, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":24, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":25, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"},
+  {"id":26, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}
+
+
 ]
