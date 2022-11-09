@@ -21,10 +21,6 @@ class User(db.Model):
   weight = db.Column(db.Float, nullable=True)
   # exercise plan for a user
 
-  def __init__(self, email, password, first_name, last_name, gender, age) -> None:
+  def __init__(self, email, password) -> None:
     self.email = email
     self.password = password
-    self.first_name = first_name
-    self.last_name = last_name
-    self.gender = gender
-    self.age = age

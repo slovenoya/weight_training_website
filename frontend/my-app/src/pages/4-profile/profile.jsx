@@ -4,11 +4,11 @@ import Dashboard from './components/dashboard/Dashboard'
 import Plan from './components/plan/plan'
 import Template from './components/template_page/template'
 import Train from './components/exercise/exercise'
-import './profile.css';
 import plan from './images/plan.png'
 import train from './images/train.png'
 import template from './images/template.png'
 import dashboard from './images/dashboard.png'
+import './profile.css';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -18,9 +18,8 @@ const Profile = () => {
   const [planName, setPlanName] = useState('')
   const [tempName, setTempName] = useState('')
   const [trainName, setTrainName] = useState('')
-
   const [nameExtension, setNameExtension] = useState(['', '', '', ''])
-  
+
   const setPage = (page) => {
     setDisplay(page);
   }
@@ -55,7 +54,7 @@ const Profile = () => {
       console.log('error');
     }
   }, [display]);
-
+ 
   return (
     <div className='pro-page'>
       <div className='side-bar'>

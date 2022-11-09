@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, request
 import sqlalchemy
 from extensions import db
 from models.user import User
+
 user = Blueprint('user', __name__)
 
 def format_user(user):
