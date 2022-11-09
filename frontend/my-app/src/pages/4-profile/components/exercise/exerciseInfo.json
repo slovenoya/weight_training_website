@@ -1,0 +1,9 @@
+[
+  {"id":1, "name":"Bench Press", "description":"push harder!", "type":"chest", "video":null}, 
+  {"id":2, "name":"Squat", "description":"Light weight baby", "type":"leg", "video":null}, 
+  {"id":3, "name":"pull up", "description":"darken the sky", "type":"back", "video":null}, 
+  {"id":4, "name":"push up", "description":"better chest ", "type":"chest", "video":null}, 
+  {"id":5, "name":"lat pull down", "description":"side of your lat", "type":"back", "video":null}, 
+  {"id":6, "name":"deadlift", "description":"strong leg", "type":"leg", "video":null}, 
+  {}
+]
