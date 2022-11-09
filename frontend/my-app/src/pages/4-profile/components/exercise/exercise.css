@@ -4,7 +4,7 @@
 
 .exercise-container {
   display: flex;
-  row-gap: 24px;
-  column-gap: 24px;
+  row-gap: 36px;
+  column-gap: 44px;
   flex-wrap:wrap;
 }
