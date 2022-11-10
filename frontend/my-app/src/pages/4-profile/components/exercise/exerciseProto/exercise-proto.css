@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+.extend {
+  width: 168px;
+  height: 196px;
+}
+
 .exercise-item p {
   color:rgba(129, 125, 125, 0.829);
   font-weight: 500;
@@ -17,3 +22,5 @@
 .exercise-item img {
   margin-top: 16px;
 }
+
+

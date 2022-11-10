@@ -1,10 +1,11 @@
-.page-container {
-  margin:80px 80px;
-}
-
 .exercise-container {
+  margin:80px 80px;
   display: flex;
   row-gap: 36px;
   column-gap: 44px;
   flex-wrap:wrap;
+}
+
+.description-back {
+  cursor: pointer;
 }
