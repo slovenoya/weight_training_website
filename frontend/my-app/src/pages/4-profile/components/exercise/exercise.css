@@ -6,6 +6,16 @@
   flex-wrap:wrap;
 }
 
+.description {
+  color:rgb(74, 73, 72);
+  height: 100vh;
+}
+
 .description-back {
   cursor: pointer;
 }
+
+.description-name {
+  font-size:48px;
+}
+

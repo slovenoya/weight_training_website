@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react'
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import Dashboard from './components/dashboard/Dashboard'
 import Plan from './components/plan/plan'
 import Template from './components/template_page/template'
@@ -12,6 +12,8 @@ import './profile.css';
 
 const Profile = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const data = location.state.user
   const [display, setDisplay] = useState('dashboard')
   const [Content, setContent] = useState(<Dashboard />)
   const [dashName, setDashName] = useState('open')
