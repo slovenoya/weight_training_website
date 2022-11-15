@@ -28,7 +28,7 @@ function Registration() {
     }
     const user = {email:{email}, password:{password}};
     if (user !== null) {
-      navigate('/profile')
+      navigate('/profile',{state:{user:user.email}})
     }
     // try {
     //   const resp = await axios.post(`${baseURL}/user`, user);

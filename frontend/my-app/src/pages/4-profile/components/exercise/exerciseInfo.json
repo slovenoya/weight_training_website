@@ -5,7 +5,7 @@
   {"id":4, "name":"push up", "description":"better chest ", "type":"chest", "url":"exerciseImages/barbell.jpg"}, 
   {"id":5, "name":"lat pull down", "description":"side of your lat", "type":"back", "url":"exerciseImages/barbell.jpg"}, 
   {"id":6, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
-  {"id":7, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
+  {"id":7, "name":"incline bench press", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
   {"id":8, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
   {"id":9, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 
   {"id":10, "name":"deadlift", "description":"strong leg", "type":"leg", "url":"exerciseImages/barbell.jpg"}, 

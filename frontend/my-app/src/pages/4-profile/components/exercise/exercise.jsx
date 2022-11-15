@@ -12,11 +12,13 @@ const ExerciseDescription = props => {
     props.setPageType(DEFAULT);
   }
   return (
-    <div>
-      <p className='description-back' onClick={handleClick}>go back</p>
-      <p>{exercise.name}</p>
-      <img src={exercise.url} alt="exercise" width='100px'/>
-      <p>{exercise.description}</p>
+    <div className='description'>
+      <div className='description-content'>
+        <p className='description-name'>{exercise.name}</p>
+        <img src={exercise.url} alt="exercise" width='100px'/>
+        <p className='description-main'>{exercise.description}</p>
+      </div>
+      <div className='description-back' onClick={handleClick}>Go Back</div>
     </div>
   )
 }
