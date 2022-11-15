@@ -1,10 +1,21 @@
-.page-container {
-  margin:128px 128px;
-}
-
 .exercise-container {
+  margin:80px 80px;
   display: flex;
-  row-gap: 96px;
-  column-gap: 48px;
+  row-gap: 36px;
+  column-gap: 44px;
   flex-wrap:wrap;
 }
+
+.description {
+  color:rgb(74, 73, 72);
+  height: 100vh;
+}
+
+.description-back {
+  cursor: pointer;
+}
+
+.description-name {
+  font-size:48px;
+}
+

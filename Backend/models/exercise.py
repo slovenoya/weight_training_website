@@ -30,9 +30,8 @@ class Exercise (db.Model):
   move_type = db.Column(db.Enum(MoveTypes))
   # exercise plan for a user
 
-  def __init__(self, id, name, description, body_part, move_type) -> None:
+  def __init__(self, id, name, body_part, move_type) -> None:
     self.id=id
     self.name=name
-    self.description=description
     self.body_part=body_part
     self.move_type=move_type

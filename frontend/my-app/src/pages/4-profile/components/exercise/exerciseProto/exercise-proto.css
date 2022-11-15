@@ -1,0 +1,26 @@
+.exercise-item {
+  padding: 16px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  width: 168px;
+  height: 196px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.extend {
+  width: 168px;
+  height: 196px;
+}
+
+.exercise-item p {
+  color:rgba(129, 125, 125, 0.829);
+  font-weight: 500;
+  margin-top: 24px;
+}
+
+.exercise-item img {
+  margin-top: 16px;
+}
+
+
