@@ -14,10 +14,10 @@ def create_app():
   db.init_app(app)
   migrate.init_app(app)
 
-  app.register_blueprint(user, url_prefix="/user")
-  app.register_blueprint(exercise, url_prefix="/exercise")
-  app.register_blueprint(plan, url_prefix="/plan")
-  app.register_blueprint(pr, url_prefix="/pr")
+  app.register_blueprint(user, url_prefix="/")
+  app.register_blueprint(exercise, url_prefix="/")
+  app.register_blueprint(plan, url_prefix="/")
+  app.register_blueprint(pr, url_prefix="/")
 
   CORS(app)
   return app

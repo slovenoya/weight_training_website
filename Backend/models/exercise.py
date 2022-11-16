@@ -23,15 +23,16 @@ class Intensity(enum.IntEnum):
 
 class Exercise (db.Model):
   __tablename__ = 'exercise'
-  # essential information of a user
   id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(50), nullable=False, unique=True)
-  body_part = db.Column(db.Enum(BodyParts))
-  move_type = db.Column(db.Enum(MoveTypes))
-  # exercise plan for a user
+  name = db.Column(db.String(50), nullable=False, unique=False)
+  body_part = db.Column(db.Enum(BodyParts), nullable=True)
+  move_type = db.Column(db.Enum(MoveTypes), nullable=True)
+  description = db.Column(db.String(3000), nullable=True)
+  url = db.Column(db.String(512), nullable=True)
 
-  def __init__(self, id, name, body_part, move_type) -> None:
-    self.id=id
+  def __init__(self, name, body_part, move_type, description, url) -> None:
     self.name=name
     self.body_part=body_part
     self.move_type=move_type
+    self.description=description
+    self.url=url

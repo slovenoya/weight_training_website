@@ -11,10 +11,6 @@ def format_user(user):
     'id' : user.id, 
     'email' : user.email, 
     'password' : user.password, 
-    'first_name' : user.first_name, 
-    'last_name' : user.last_name, 
-    'gender' : user.gender, 
-    'age' : user.age, 
     'chest_cir' : user.chest_cir, 
     'waist_cir' : user.waist_cir, 
     'arm_cir' : user.arm_cir,
@@ -28,11 +24,7 @@ def format_user(user):
 def post_user():
   email=request.json['email']
   password=request.json['password']
-  first_name=request.json['first_name']
-  last_name=request.json['last_name']
-  gender=request.json['gender']
-  age=request.json['age']
-  user = User(email, password, first_name, last_name, gender, age)
+  user = User(email, password)
   db.session.add(user)
   try:  
     db.session.commit()
