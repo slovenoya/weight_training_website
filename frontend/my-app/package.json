@@ -44,5 +44,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "", 
+  "resolutions": {
+    "memfs": "3.4.7"
+  }
 }

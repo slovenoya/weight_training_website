@@ -13,7 +13,7 @@ import './profile.css';
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const id = location.state.id
+  const id = location.state.id;
   const [display, setDisplay] = useState('dashboard')
   const [Content, setContent] = useState(<Dashboard id={id}/>)
   const [dashName, setDashName] = useState('open')

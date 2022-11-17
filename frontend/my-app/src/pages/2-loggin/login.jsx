@@ -4,10 +4,8 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import userLogo from './images/user.svg';
 import keyLogo from './images/key.svg'
-import loginVideo from './video/login-vid.mp4'
 import './login.css';
 
-const baseURL =  "http://127.0.0.1:5000";
 
 const Login = () => {
   const [email, setEmail] = useState(""); 
@@ -23,6 +21,7 @@ const Login = () => {
   }
 
   const handleLogin = async(e) => {
+    const baseURL =  "http://127.0.0.1:5000";
     e.preventDefault();
     if (email !== '' && password !== '') {
       try {
@@ -46,12 +45,11 @@ const Login = () => {
 
   return (
     <div>
-      <video src={loginVideo} autoPlay muted loop />
+      <video src='/login/login-vid.mp4' autoPlay muted loop />
     
       <div className='login-page'>
         <div className='login-form'>
           <div className='login-head'>
-            {/* <p className='login-title'>Welcome Back!</p> */}
             <p className='login-slogan'>Keep Changing</p>
           </div>
           <div className='login-body'>

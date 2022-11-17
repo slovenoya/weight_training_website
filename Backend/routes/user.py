@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, request
 import sqlalchemy
 from extensions import db
 from models.user import User
+import psycopg2
 
 user = Blueprint('user', __name__)
 
@@ -63,11 +64,10 @@ def update_user(id):
 
 @user.route('user/validate', methods=["POST"])
 def verify_user():
+  email=request.json['email']
   password=request.json['password']
-  username=request.json['email']
   try:
-    print(password)
-    user = User.query.filter(User.email==username).one()
+    user = User.query.filter(User.email==email).one()
     if not (user.password == password):
       return {"verification" : False}
   except sqlalchemy.exc.NoResultFound:

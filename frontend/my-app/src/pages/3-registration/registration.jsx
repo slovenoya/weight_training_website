@@ -11,7 +11,7 @@ function Registration() {
   const [confirmPass, setConfirmPass] = useState('')
 
   const navigate = useNavigate()
-  const changeEmail = e =>  {setEmail(e.target.value); console.log(email)}
+  const changeEmail = e =>  {setEmail(e.target.value);}
   const changePassword = e =>  {setPassword(e.target.value)}
   const changeConfirmPass = e =>  {setConfirmPass(e.target.value)}
 
@@ -32,7 +32,7 @@ function Registration() {
         alert('email already used');
         return false;
       } else {
-        navigate('/profile', {state:{"id":user["id"]}})
+        navigate('/profile', {state:{id:user["id"]}})
       }
     } catch (error) {
       console.log(error);
