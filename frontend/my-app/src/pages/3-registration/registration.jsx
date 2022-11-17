@@ -21,26 +21,23 @@ function Registration() {
       alert('You need to give us your information');
       return false;
     }
-
     if (password !== confirmPass) {
       alert('password doesn\'t match!');
       return false;
     }
-    const user = {email:{email}, password:{password}};
-    if (user !== null) {
-      navigate('/profile',{state:{user:user.email}})
+    try{
+      const resp = await axios.post(`${baseURL}/user`, {"email":email, "password":password});
+      const user = resp.data['user']
+      if (user === null) {
+        alert('email already used');
+        return false;
+      } else {
+        navigate('/profile', {state:{"id":user["id"]}})
+      }
+    } catch (error) {
+      console.log(error);
+      return false;
     }
-    // try {
-    //   const resp = await axios.post(`${baseURL}/user`, user);
-    //   if (resp.data['user'] != null){
-    //     navigate('/')
-    //   } else {
-    //     alert('email already used')
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   return false;
-    // }
   }
 
   return (

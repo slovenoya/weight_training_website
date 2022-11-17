@@ -13,9 +13,9 @@ import './profile.css';
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const data = location.state.user
+  const id = location.state.id
   const [display, setDisplay] = useState('dashboard')
-  const [Content, setContent] = useState(<Dashboard />)
+  const [Content, setContent] = useState(<Dashboard id={id}/>)
   const [dashName, setDashName] = useState('open')
   const [planName, setPlanName] = useState('')
   const [tempName, setTempName] = useState('')
@@ -41,13 +41,13 @@ const Profile = () => {
 
   useEffect(() => {
     if (display === 'dashboard') {
-      setContent(<Dashboard />);
+      setContent(<Dashboard user_id={id}/>);
       setNameExtension(['open', '', '', ''])
     } else if (display === 'plan') {
-      setContent(<Plan />);
+      setContent(<Plan user_id={id}/>);
       setNameExtension(['', 'open', '', ''])
     } else if (display === 'template') {
-      setContent(<Template />);
+      setContent(<Template user_id={id}/>);
       setNameExtension(['', '', 'open', ''])
     } else if (display === 'train') {
       setContent(<Train />);
@@ -55,7 +55,7 @@ const Profile = () => {
     } else{
       console.log('error');
     }
-  }, [display]);
+  }, [display, id]);
  
   return (
     <div className='pro-page'>
