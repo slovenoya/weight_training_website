@@ -57,6 +57,26 @@ def change_plan_status(user_id, plan_id):
     plan.activation = not plan.activation
     db.session.commit()
     plan_list.append(format_plan(plan))
-  return {"plans":plan_list}
+  return jsonify(success=True)
 
-  
+@plan.route('/plan/<user_id>/<plan_id>', methods=['GET'])
+def finish_today_plan(user_id, plan_id):
+  plans = Plan.query.filter_by(user_id=user_id, plan_id=plan_id).all()
+  plan_list = []
+  for plan in plans:
+    plan.day_count += 1
+    plan.weight += plan.increment
+    db.session.commit()
+    plan_list.append(format_plan(plan))
+  return jsonify(plan_list=plan_list)
+
+@plan.route('/plan/<user_id>/<plan_id>/<exercise_id>', methods=['POST'])
+def change_increment(user_id, plan_id, exercise_id):
+  plans = Plan.query.filter_by(user_id=user_id, plan_id=plan_id, exercise_id=exercise_id).all()
+  increment = request.json["increment"]
+  plan_list = []
+  for plan in plans:
+    plan.increment=increment
+    plan_list.append(format_plan(plan))
+    db.session.commit()
+  return jsonify(plan_list=plan_list)

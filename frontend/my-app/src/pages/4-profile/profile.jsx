@@ -61,7 +61,7 @@ const Profile = () => {
     <div className='pro-page'>
       <div className='side-bar'>
         <div className='side-bar-icon'>
-          <p>GYMCAT</p>
+          <p>PROFILE</p>
         </div>
 
         <div className='main-bar'>
