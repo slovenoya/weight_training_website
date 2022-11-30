@@ -1,0 +1,46 @@
+.top-bar {
+  display:flex;
+  background-color: white;
+  padding: 12px 0px;
+}
+
+.top-bar-logo {
+  margin-left: auto;
+  padding: 16px;
+  background-color: beige;
+  border-radius: 100px;
+  cursor:pointer;
+}
+
+.top-bar-email {
+  margin-right: 16px;
+  padding: 16px;
+  cursor:pointer;
+}
+
+.top-bar-head {
+  font-size: 24px;
+  color: rgb(108, 108, 108);
+  text-align:center;
+  margin:auto 24px;
+}
+
+.dash-content {
+  display: grid;
+  padding: 24px 36px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+}
+
+.pr-container {
+  background-color: rgb(255, 255, 255);
+  padding: 25px;
+  border-radius: 12px;
+  grid-column: span(2, 3);
+}
+
+.pr-table td, th {
+  text-align: left;
+}
+

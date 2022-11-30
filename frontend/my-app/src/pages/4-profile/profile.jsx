@@ -8,14 +8,30 @@ import plan from './images/plan.png'
 import train from './images/train.png'
 import template from './images/template.png'
 import dashboard from './images/dashboard.png'
+import axios from 'axios';
 import './profile.css';
 
 const Profile = () => {
+  const baseURL =  "http://127.0.0.1:5000";
+  const [exercises, setExercises] = useState();
+  useEffect(()=>{
+    async function fetchData() {
+      try{
+        const data = await axios.get(`${baseURL}/exercise`);
+        setExercises(data.data["exercises"]);
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.state.id;
   const [display, setDisplay] = useState('dashboard')
-  const [Content, setContent] = useState(<Dashboard id={id}/>)
+  const [Content, setContent] = useState(<Dashboard id={id} exercises={exercises}/>)
   const [dashName, setDashName] = useState('open')
   const [planName, setPlanName] = useState('')
   const [tempName, setTempName] = useState('')
@@ -41,7 +57,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (display === 'dashboard') {
-      setContent(<Dashboard user_id={id}/>);
+      setContent(<Dashboard user_id={id} exercises={exercises}/>);
       setNameExtension(['open', '', '', ''])
     } else if (display === 'plan') {
       setContent(<Plan user_id={id}/>);
@@ -50,12 +66,12 @@ const Profile = () => {
       setContent(<Template user_id={id}/>);
       setNameExtension(['', '', 'open', ''])
     } else if (display === 'train') {
-      setContent(<Train />);
+      setContent(<Train exercises={exercises}/>);
       setNameExtension(['', '', '', 'open'])
     } else{
       console.log('error');
     }
-  }, [display, id]);
+  }, [display, exercises, id]);
  
   return (
     <div className='pro-page'>

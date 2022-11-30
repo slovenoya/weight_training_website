@@ -11,7 +11,8 @@ def format_pr(pr:PersonalRecord) :
     "id":pr.id, 
     "user_id":pr.user_id, 
     "exercise_id":pr.exercise_id, 
-    "weight":pr.weight
+    "weight":pr.weight, 
+    "rep":pr.rep
   }
 
 @pr.route('/pr', methods=['POST'])

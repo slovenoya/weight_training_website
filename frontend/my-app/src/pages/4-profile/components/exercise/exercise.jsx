@@ -40,25 +40,11 @@ const ExerciseList = (props) => {
   )
 }
 
-const Exercise = () => {
+const Exercise = props => {
   const [page, setPage] = useState()
   const [pageType, setPageType] = useState(DEFAULT);
   const [exercise, setExercise] = useState();
-  const [exercises, setExercises] = useState([])
-  const baseURL =  "http://127.0.0.1:5000";
-  
-  useEffect(()=>{
-    async function fetchData() {
-      try{
-        const data = await axios.get(`${baseURL}/exercise`);
-        setExercises(data.data["exercises"]);
-      } catch (error) {
-        console.log(error);
-        return false;
-      }
-    }
-    fetchData()
-  }, [])
+  const exercises = props.exercises
 
   useEffect(()=>{
     if (pageType === DEFAULT) {
