@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.20.4",
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -40,9 +41,11 @@
     ]
   },
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "", 
+  "resolutions": {
+    "memfs": "3.4.7"
+  }
 }

@@ -1,16 +1,25 @@
 from extensions import db
+from sqlalchemy import ForeignKey
 
 class Plan(db.Model):
   __tablename__ = 'plan'
-  # essential information of a user
   id = db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer)
-  exercise_id = db.Column(db.Integer)
-  exercise_sequence = db.Column(db.Integer)
+  plan_id = db.Column(db.Integer)
+  user_id = db.Column(db.Integer, ForeignKey('user.id'))
+  exercise_id = db.Column(db.Integer, ForeignKey('exercise.id'))
+  sequence = db.Column(db.Integer, nullable=True)
   activation = db.Column(db.Boolean, default=True)
-  # body information of a user
   weight = db.Column(db.Float, nullable=True)
   rep = db.Column(db.Integer, nullable=True)
+  set = db.Column(db.Integer, nullable=True)
+  day_count = db.Column(db.Integer, default=0)
+  increment = db.Column(db.Integer, default=5)
   
-  def __init__(self, email, password, first_name, last_name, gender, age) -> None:
-    pass
+  def __init__(self, plan_id, user_id, exercise_id, set, rep, sequence, weight) -> None:
+    self.plan_id = plan_id
+    self.user_id = user_id
+    self.exercise_id = exercise_id
+    self.rep = rep
+    self.set = set
+    self.sequence = sequence
+    self.weight = weight

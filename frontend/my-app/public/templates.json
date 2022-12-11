@@ -1,0 +1,11 @@
+[
+  {"5*5":[{"exercise_id":1, "rep":5, "set":5, "sequence":1},
+          {"exercise_id":1, "rep":5, "set":5, "sequence":2},
+          {"exercise_id":1, "rep":5, "set":5, "sequence":3}]}, 
+  {"3-split":[{"exercise_id":1, "rep":8, "set":3, "sequence":1},
+          {"exercise_id":1, "rep":8, "set":3, "sequence":2},
+          {"exercise_id":1, "rep":8, "set":3, "sequence":3}]}, 
+  {"body-pump":[{"exercise_id":1, "rep":15, "set":2, "sequence":1},
+          {"exercise_id":1, "rep":15, "set":2, "sequence":2},
+          {"exercise_id":1, "rep":15, "set":2, "sequence":3}]}
+]

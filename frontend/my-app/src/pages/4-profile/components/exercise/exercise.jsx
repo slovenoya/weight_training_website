@@ -1,6 +1,6 @@
-import {React, useState, useEffect} from 'react'
+import axios from 'axios';
 import ExerciseProto from './exerciseProto/exerciseProto'
-import exercises from './exerciseInfo.json'
+import {React, useState, useEffect} from 'react'
 import './exercise.css'
 
 const DEFAULT = 1;
@@ -23,12 +23,12 @@ const ExerciseDescription = props => {
   )
 }
 
-const ExerciseList = props => {
+const ExerciseList = (props) => {
+  const exercises = props.exercises;
   const handleClick = (exercise) => {
     props.setExercise(exercise);
     props.setPageType(DESCRIPTION)
   }
-
   return (
     <div className='exercise-container'>
       {exercises.map((exercise) => (
@@ -40,24 +40,23 @@ const ExerciseList = props => {
   )
 }
 
-const Exercise = () => {
+const Exercise = props => {
   const [page, setPage] = useState()
   const [pageType, setPageType] = useState(DEFAULT);
   const [exercise, setExercise] = useState();
+  const exercises = props.exercises
 
   useEffect(()=>{
     if (pageType === DEFAULT) {
-      setPage(<ExerciseList setExercise={setExercise} setPageType={setPageType}></ExerciseList>)
+      setPage(<ExerciseList setExercise={setExercise} setPageType={setPageType} exercises={exercises}></ExerciseList>)
     } else if (pageType === DESCRIPTION) {
       setPage(<ExerciseDescription exercise={exercise} setPageType={setPageType}></ExerciseDescription>)
     }
-  }, [pageType, exercise])
-
+  }, [pageType, exercise, exercises])
   return (
     <div className='page-container'>
       {page}
     </div>
-
   )
 }
 

@@ -1,0 +1,17 @@
+.temp-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.plan-container {
+  background-color:aliceblue;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.plan-body {
+  display:flex;
+  gap: 40px;
+}
