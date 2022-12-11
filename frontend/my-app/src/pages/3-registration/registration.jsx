@@ -2,6 +2,7 @@ import {React, useState} from 'react'
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import './registration.css';
+import { useEffect } from 'react';
 
 const baseURL =  "http://127.0.0.1:5000";
 
@@ -39,6 +40,7 @@ function Registration() {
       return false;
     }
   }
+
 
   return (
     <div>

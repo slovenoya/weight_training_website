@@ -10,7 +10,8 @@ class PersonalRecord(db.Model):
   time = db.Column(db.DateTime, nullable=True)
   rep = db.Column(db.Integer, default=1)
   
-  def __init__(self, user_id, exercise_id, weight) -> None:
+  def __init__(self, user_id, exercise_id, weight, rep) -> None:
     self.user_id = user_id
     self.exercise_id = exercise_id
     self.weight = weight
+    self.rep = rep

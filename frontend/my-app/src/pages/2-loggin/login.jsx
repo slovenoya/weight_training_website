@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     if (email !== '' && password !== '') {
       try {
-        const resp = await axios.post(`${baseURL}/user/validate`, {email:email, password:password});
+        const resp = await axios.post(`${baseURL}/user/validate`, {email:email, password:password})
         if (resp.data['verification']) {
           navigate('/profile', {state:{id:resp.data['id']}})
         } else {

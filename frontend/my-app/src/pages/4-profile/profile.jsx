@@ -60,7 +60,7 @@ const Profile = () => {
       setContent(<Dashboard user_id={id} exercises={exercises}/>);
       setNameExtension(['open', '', '', ''])
     } else if (display === 'plan') {
-      setContent(<Plan user_id={id}/>);
+      setContent(<Plan user_id={id} exercises={exercises}/>);
       setNameExtension(['', 'open', '', ''])
     } else if (display === 'template') {
       setContent(<Template user_id={id}/>);

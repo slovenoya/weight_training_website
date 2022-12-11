@@ -16,7 +16,9 @@ def format_plan(plan:Plan):
     "activation":plan.activation, 
     "weight":plan.weight, 
     "rep":plan.rep, 
-    "set":plan.set
+    "set":plan.set, 
+    "day_count":plan.day_count, 
+    "increment":plan.increment
   }
 
 @plan.route('/plan', methods=['POST'])
@@ -24,7 +26,11 @@ def post_plan():
   plan_id = request.json['plan_id']
   user_id = request.json['user_id']
   exercise_id = request.json['exercise_id']
-  plan=Plan(plan_id, user_id, exercise_id)
+  set = request.json['set']
+  rep = request.json['rep']
+  sequence = request.json['sequence']
+  weight = request.json['weight']
+  plan=Plan(plan_id, user_id, exercise_id, set, rep, sequence, weight)
   db.session.add(plan)
   try:
     db.session.commit()
@@ -59,18 +65,27 @@ def change_plan_status(user_id, plan_id):
     plan_list.append(format_plan(plan))
   return jsonify(success=True)
 
-@plan.route('/plan/<user_id>/<plan_id>', methods=['GET'])
-def finish_today_plan(user_id, plan_id):
-  plans = Plan.query.filter_by(user_id=user_id, plan_id=plan_id).all()
+@plan.route('/plan_finish/<user_id>', methods=['POST'])
+def finish_today_plan(user_id):
+  plans = Plan.query.filter_by(user_id=user_id, activation=True).all()
   plan_list = []
   for plan in plans:
-    plan.day_count += 1
-    plan.weight += plan.increment
-    db.session.commit()
+    finish_one_plan(plan.id)
     plan_list.append(format_plan(plan))
   return jsonify(plan_list=plan_list)
 
-@plan.route('/plan/<user_id>/<plan_id>/<exercise_id>', methods=['POST'])
+@plan.route('/plan_finish', methods=['GET'])
+def finish_one_plan(id):
+  plan = Plan.query.get_or_404(id)
+  if (plan.day_count % 3 + 1) == plan.sequence:
+    print(format_plan(plan))
+    plan.weight += plan.increment
+    print(format_plan(plan))
+  plan.day_count += 1
+  db.session.commit()
+  return format_plan(plan)
+
+@plan.route('/plan/increment/<user_id>/<plan_id>/<exercise_id>', methods=['POST'])
 def change_increment(user_id, plan_id, exercise_id):
   plans = Plan.query.filter_by(user_id=user_id, plan_id=plan_id, exercise_id=exercise_id).all()
   increment = request.json["increment"]
@@ -80,3 +95,28 @@ def change_increment(user_id, plan_id, exercise_id):
     plan_list.append(format_plan(plan))
     db.session.commit()
   return jsonify(plan_list=plan_list)
+
+@plan.route('/plan/weight/<user_id>/<plan_id>/<exercise_id>', methods=['POST'])
+def change_weight(user_id, plan_id, exercise_id):
+  plans = Plan.query.filter_by(user_id=user_id, plan_id=plan_id, exercise_id=exercise_id).all()
+  increment = request.json["increment"]
+  plan_list = []
+  for plan in plans:
+    plan.increment=increment
+    plan_list.append(format_plan(plan))
+    db.session.commit()
+  return jsonify(plan_list=plan_list)
+
+@plan.route('/plan/plan_id/<plan_id>', methods=['DELETE'])
+def delete_plansr(plan_id):
+  plans = Plan.query.filter_by(plan_id=plan_id).all()
+  for plan in plans:
+    delete_plan(plan.id)
+  return f'plan id: {id} deleted'
+
+@plan.route('/plan/<id>', methods=['DELETE'])
+def delete_plan(id):
+  plan = Plan.query.get_or_404(id)
+  db.session.delete(plan)
+  db.session.commit()
+  return f'plan id: {id} deleted'

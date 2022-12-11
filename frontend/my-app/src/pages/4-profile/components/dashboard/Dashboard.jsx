@@ -14,9 +14,76 @@ const TopBar = (props) => {
 }
 
 const PersonalRecord = (props) => {
-  const [prList, setPrList] = useState(props.prList);
+  const [prList, setPrList] = useState([]);
+  const [edit, setEdit] = useState(-1);
+  const [weight, setWeight] = useState(0);
+  const [rep, setRep] = useState(0);
+  const [exercise_id, setExerciseId] = useState(0);
   const exercises = props.exercises;
-  if (prList && exercises) {
+  const [user_id, setUserId] = useState(props.user.id);
+  const baseURL =  "http://127.0.0.1:5000";
+  const changeRep = e => {
+    setRep(e.target.value);
+  }
+
+  const changeWeight = e => {
+    setWeight(e.target.value);
+  }
+ 
+  const handleEdit = id => {
+    setEdit(id);
+  }
+
+  const handleAdd = async () => {
+    const resp = await axios.get(`${baseURL}/pr/${user_id}/${exercise_id}`)
+    if (resp.data['exist']){
+      await axios.post(`${baseURL}/pr`, {"user_id":user_id, "weight":weight, "exercise_id":exercise_id, "rep":rep});
+    }
+    else{
+      await axios.patch(`${baseURL}/pr/${user_id}`, {"weight":weight, "rep":rep});
+    }
+    const data=await axios.get(`${baseURL}/pr/${user_id}`);
+    setPrList(data.data["pr_list"])
+  }
+
+  const handleDelete = async (id) => {
+    await axios.delete(`${baseURL}/pr/${id}`);
+    const data=await axios.get(`${baseURL}/pr/${user_id}`);
+    setPrList(data.data["pr_list"])
+  }
+
+  const handleSubmit = async (id) => {
+    setEdit(-1);
+    await axios.patch(`${baseURL}/pr/${id}`, {"weight":weight, "rep":rep});
+    const data=await axios.get(`${baseURL}/pr/${user_id}`);
+    setPrList(data.data["pr_list"]);
+  }
+
+  const handleSelect = (exercise_id) => {
+    setExerciseId(exercise_id);
+  }
+
+
+
+  useEffect(() => {
+    setPrList(props.prList)
+  }, [props])
+
+  // useEffect(() => {
+  //   if (user_id) {
+  //     fetchPr();
+  //   }
+  //   async function fetchPr() {
+  //     try {
+  //       const data=await axios.get(`${baseURL}/pr/${user_id}`);
+  //       setPrList(data.data["pr_list"])
+  //     } catch(error) {
+  //       console.log(error);
+  //     }
+  //   };
+  // }, [edit, user_id])
+  
+  if (prList && exercises && props.user) {
     return (
     <div className='pr-container'>
       <div>Personal Records</div>
@@ -30,20 +97,47 @@ const PersonalRecord = (props) => {
         </thead>
         <tbody>
           {prList.map((pr) => {
-            return (
-              <tr key={pr.id}>
-                <td className='pr-entry'>
-                  <div>
-                    {exercises.filter(exercise => exercise.id === pr.exercise_id).map(filteredEx => {
-                      return <div key={filteredEx.id}>{filteredEx.name}</div>})}
-                  </div>
-                </td>
-                <td>{pr.rep}</td>
-                <td>{pr.weight}</td>
-              </tr>)
+            if (edit === pr.id) {
+              return <tr key={pr.id}>
+                  <td className='pr-entry'>
+                    <div>
+                      {exercises.filter(exercise => exercise.id === pr.exercise_id).map(filteredEx => {
+                        return <div key={filteredEx.id}>{filteredEx.name}</div>})}
+                    </div>
+                  </td>
+                  <td><input type="text" placeholder={pr.rep} onChange={changeRep}/></td>
+                  <td><input type="text" placeholder={pr.weight} onChange={changeWeight}/></td>
+                  <td><button key={pr.id} onClick={() => {handleSubmit(pr.id)}}>submit</button></td>
+                </tr>
+            }
+            else{
+              return (
+                <tr key={pr.id}>
+                  <td className='pr-entry'>
+                    <div>
+                      {exercises.filter(exercise => exercise.id === pr.exercise_id).map(filteredEx => {
+                        return <div key={filteredEx.id}>{filteredEx.name}</div>})}
+                    </div>
+                  </td>
+                  <td>{pr.rep}</td>
+                  <td>{pr.weight}</td>
+                  <td><button key={pr.id} onClick={() => {handleEdit(pr.id)}}>edit</button></td>
+                  <td><button key={pr.id} onClick={() => {handleDelete(pr.id)}}>delete</button></td>
+                </tr>)
+            }
             })}
         </tbody>
       </table>
+      <div className='add-record'>
+        <select onChange={e => setExerciseId(e.target.value)}>
+          {exercises.map(exercise => {
+            return <option value={exercise.id} key={exercise.id} onChange={()=>handleSelect(exercise.id)}>{exercise.name}</option>
+          })}
+        </select>
+          <input type="text" placeholder='reps' onChange={(e) => {setRep(e.target.value) }}/>
+          <input type="text" placeholder='weight' onChange={(e) => {setWeight(e.target.value) }}/>
+          <button onClick={handleAdd}>add</button>
+      </div>
     </div>
     )
   }
@@ -55,19 +149,64 @@ const PersonalRecord = (props) => {
 }
 
 const Plans = (props) => {
-  const plans = props.plans;
-  return <div className='plans-container'>
-    {plans.map((plan) => {
-      return <div key={plan.id}>{plan.id}</div>
-    })}
-  </div>
+  const [plans, setPlans] = useState(props.plans);
+  const exercises = props.exercises;
+  const user_id = props.user_id;
+  const [sequence, setSequence] = useState(0);
+  const baseURL =  "http://127.0.0.1:5000";
+
+  const handleFinish = async () => {
+    await axios.post(`${baseURL}/plan_finish/${user_id}`)
+    const resp = await axios.get(`${baseURL}/plan/${user_id}`)
+    setPlans(resp.data['plans'])
+  }
+
+  useEffect(() => {
+    if (plans.length > 0) {
+      var dc = plans[0].day_count;
+      var plan_length = 0;
+      for (var i = 0; i < plans.length; i++){
+        if (plans[i].sequence > plan_length) {
+          plan_length = plans[i].sequence;
+        }
+      }
+      setSequence(dc % plan_length + 1);
+    }
+  }, [plans])
+
+  return (<div className='pr-container'>
+    <div>Today's Plans</div>
+    <table className='pr-table'>
+      <thead>
+        <tr className='pr-header'>
+          <th>name</th>
+          <th>reps</th>
+          <th>sets</th>
+          <th>weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        {plans.filter(plan => plan.sequence === sequence && plan.activation === true).map((filteredPlan) => {
+          return (
+            <tr key={filteredPlan.id}>
+              <td className='pr-entry'>
+                <div>
+                  {exercises.filter(exercise => exercise.id === filteredPlan.exercise_id).map(filteredPlan => {
+                    return <div key={filteredPlan.id}>{filteredPlan.name}</div>})}
+                </div>
+              </td>
+              <td>{filteredPlan.rep}</td>
+              <td>{filteredPlan.set}</td>
+              <td>{filteredPlan.weight}</td>
+              <td>{filteredPlan.plan_id}</td>
+            </tr>)
+          })}
+      </tbody>
+    </table>
+    <button onClick={handleFinish}>finish</button>
+  </div>)
 }
 
-const PRHist = (props) => {
-  return <div>
-    hist
-  </div>
-}
 
 const Dashboard = (props) => {
   const user_id = props.user_id;
@@ -103,7 +242,7 @@ const Dashboard = (props) => {
         console.log(error);
       }
     };
-  }, [user_id])
+  }, [user_id,])
 
   useEffect(() => {
     if (user_id) {
@@ -124,8 +263,7 @@ const Dashboard = (props) => {
       <TopBar user={user}/>
       <div className='dash-content'>
         <PersonalRecord user={user} prList={prList} exercises={exercises}/>
-        <Plans user={user} plans={plans} exercises={exercises}/>
-        <PRHist />
+        <Plans user_id={user_id} plans={plans} exercises={exercises}/>
       </div>
     </div>);
   }

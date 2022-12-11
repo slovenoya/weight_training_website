@@ -26,28 +26,28 @@ def format_exercise(exercise:Exercise):
 
 # uncomment this chunk of code when you want to populate exercise list
 
-# @exercise.route('/exercises', methods=['POST'])
-# def post_exercises():
-#   lst = request.json["exercises"]
-#   for exercise in lst:
-#     post_exercise(exercise)
-#   return jsonify(success=True)
+@exercise.route('/exercises', methods=['POST'])
+def post_exercises():
+  lst = request.json["exercises"]
+  for exercise in lst:
+    post_exercise(exercise)
+  return jsonify(success=True)
 
 
-# @exercise.route('/exercise', methods=['POST'])
-# def post_exercise(exercise):
-#   name = exercise['name']
-#   body_part = exercise['body_part']
-#   move_type = exercise['move_type']
-#   description = exercise['description']
-#   url = exercise['url']
-#   exercise=Exercise(name, body_part, move_type, description, url)
-#   db.session.add(exercise)  
-#   try:
-#     db.session.commit()
-#   except sqlalchemy.exc.IntegrityError:
-#     return jsonify(exercise=format_exercise(exercise))
-#   return jsonify(success=True)
+@exercise.route('/exercise', methods=['POST'])
+def post_exercise(exercise):
+  name = exercise['name']
+  body_part = exercise['body_part']
+  move_type = exercise['move_type']
+  description = exercise['description']
+  url = exercise['url']
+  exercise=Exercise(name, body_part, move_type, description, url)
+  db.session.add(exercise)  
+  try:
+    db.session.commit()
+  except sqlalchemy.exc.IntegrityError:
+    return jsonify(exercise=format_exercise(exercise))
+  return jsonify(success=True)
 
 
 @exercise.route('/exercise', methods=['GET'])

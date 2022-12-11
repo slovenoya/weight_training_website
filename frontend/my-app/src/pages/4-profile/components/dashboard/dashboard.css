@@ -40,7 +40,31 @@
   grid-column: span(2, 3);
 }
 
+table {
+  border-spacing: 10px;
+}
+
+table input {
+  width: 40px;
+  border-width: 2px;
+  border-color: black;
+}
+
 .pr-table td, th {
   text-align: left;
+}
+
+.pr-table button {
+  padding: 8px;
+}
+
+.add-record button {
+  padding: 8px;
+}
+
+.add-record input {
+  width: 40px;
+  border-width: 2px;
+  border-color: black;
 }
 
